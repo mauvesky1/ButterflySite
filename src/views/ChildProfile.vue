@@ -4,7 +4,7 @@
     <div id="nav">
       <router-link to="/childprofile/collection">Butterfly Collection</router-link>
 
-      <router-link to="/childprofile/butterflyhunt">Go Huntin'</router-link>
+      <router-link to="/childprofile/butterflyhunt">Go Hunting</router-link>
     </div>
   </div>
 </template>
