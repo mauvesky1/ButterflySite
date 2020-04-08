@@ -12,14 +12,14 @@ const routes = [
     component: Home,
   },
   {
-    path: '/Profile',
+    path: '/profile',
     name: 'ParentProfile',
     component: ParentProfile,
 
     // component: () => import('../views/ParentProfile.vue'),
   },
   {
-    path: '/ChildProfile',
+    path: '/childprofile/:username',
     name: 'ChildProfile',
 
     component: () => import('../views/ChildProfile.vue'),
@@ -29,6 +29,11 @@ const routes = [
     name: 'CreateChildProfile',
 
     component: () => import('../views/CreateChildProfile.vue'),
+  },
+  {
+    path: '/Profile/NewChild/AvatarImages',
+    name: 'AvatarImages',
+    component: () => import('../views/AvatarImages.vue'),
   },
   {
     path: '/ChildProfile/Collection',
