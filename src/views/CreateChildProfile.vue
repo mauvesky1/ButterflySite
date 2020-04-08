@@ -2,9 +2,16 @@
   <div>
     <h1>Create your new child!</h1>
     <div>
-      Username:
-      Post a url here to your desired profile picture:
+      <CreateChildForm />
       <router-link to="/profile">Submit!</router-link>
     </div>
   </div>
 </template>
+
+<script>
+import CreateChildForm from "../components/CreateChildForm";
+
+export default {
+  components: { CreateChildForm }
+};
+</script>
