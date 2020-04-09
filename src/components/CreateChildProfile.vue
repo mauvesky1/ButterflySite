@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h1>Create your new child!</h1>
+    <h1>Create your child's new account:</h1>
     <div>
       <CreateChildForm />
-      <router-link to="/profile">Submit!</router-link>
+      <router-link to="/:username">Submit!</router-link>
     </div>
   </div>
 </template>
 
 <script>
-import CreateChildForm from "../components/CreateChildForm";
+import CreateChildForm from "./CreateChildForm";
 
 export default {
   components: { CreateChildForm }

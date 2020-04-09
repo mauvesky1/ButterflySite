@@ -8,7 +8,8 @@
         >{{child.username}}</router-link>
       </li>
     </ul>
-    <router-link to="/profile/newchild">Add Child</router-link>
+
+    <router-link to="/:username/newchild">Create New Child's Account</router-link>
   </div>
 </template>
 
