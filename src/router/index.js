@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
-import ParentProfile from '../views/ParentProfile.vue';
+import Home from '../components/Home.vue';
+import ParentProfile from '../components/ParentProfile.vue';
 
 Vue.use(VueRouter);
 
@@ -12,46 +12,46 @@ const routes = [
     component: Home,
   },
   {
-    path: '/profile',
+    path: '/:username',
     name: 'ParentProfile',
     component: ParentProfile,
 
-    // component: () => import('../views/ParentProfile.vue'),
+    // component: () => import('../components/ParentProfile.vue'),
   },
   {
-    path: '/childprofile/:username',
+    path: '/profile/:username',
     name: 'ChildProfile',
 
-    component: () => import('../views/ChildProfile.vue'),
+    component: () => import('../components/ChildProfile.vue'),
   },
   {
-    path: '/Profile/NewChild',
+    path: '/:username/NewChild',
     name: 'CreateChildProfile',
 
-    component: () => import('../views/CreateChildProfile.vue'),
+    component: () => import('../components/CreateChildProfile.vue'),
   },
   {
-    path: '/Profile/NewChild/AvatarImages',
+    path: '/profile/newchild/avatarimages',
     name: 'AvatarImages',
-    component: () => import('../views/AvatarImages.vue'),
+    component: () => import('../components/AvatarImages.vue'),
   },
   {
-    path: '/ChildProfile/Collection',
+    path: '/profile/:username/collection',
     name: 'Collection',
 
-    component: () => import('../views/Collection.vue'),
+    component: () => import('../components/Collection.vue'),
   },
   {
-    path: '/ChildProfile/Butterflyhunt',
+    path: '/profile/:username/butterflyhunt',
     name: 'Butterflyhunt',
 
-    component: () => import('../views/Butterflyhunt.vue'),
+    component: () => import('../components/Butterflyhunt.vue'),
   },
   {
-    path: '/ChildProfile/Collection/flitzy',
+    path: '/profile/:username/Collection/flitzy',
     name: 'ButterflyProfile',
 
-    component: () => import('../views/IndividualButterfly.vue'),
+    component: () => import('../components/IndividualButterfly.vue'),
   },
 ];
 
