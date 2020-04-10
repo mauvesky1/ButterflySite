@@ -7,7 +7,9 @@
 
     <label for="avatar_picture">
       Avatar Picture:
-      <router-link to="/profile/newchild/avatarimages">Pick an avatar image!</router-link>
+      <router-link to="/profile/newchild/avatarimages"
+        >Pick an avatar image!</router-link
+      >
     </label>
   </form>
 </template>
