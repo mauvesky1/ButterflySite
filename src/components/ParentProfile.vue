@@ -17,27 +17,27 @@
 
 <script>
 export default {
-  name: 'ParentProfile',
+  name: "ParentProfile",
   data() {
     return {
       username: this.$route.params.username,
       childrenUsers: [
         {
           id: 1,
-          username: 'jessjelly',
+          username: "jessjelly",
           avatar_url:
-            'https://st.depositphotos.com/1218762/1320/v/600/depositphotos_13209440-stock-video-looping-jaguar-panther-leopard-puma.jpg'
+            "https://st.depositphotos.com/1218762/1320/v/600/depositphotos_13209440-stock-video-looping-jaguar-panther-leopard-puma.jpg"
         },
         {
           id: 2,
-          username: 'butter_bridge',
+          username: "butter_bridge",
           avatar_url:
-            'https://p1.hiclipart.com/preview/358/552/18/book-silhouette-lion-cat-drawing-whiskers-animal-animation-cartoon-png-clipart.jpg'
+            "https://p1.hiclipart.com/preview/358/552/18/book-silhouette-lion-cat-drawing-whiskers-animal-animation-cartoon-png-clipart.jpg"
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped>
@@ -47,8 +47,8 @@ export default {
 }
 
 .childUsername {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 20px;
   text-align: center;
   text-decoration: none;

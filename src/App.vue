@@ -19,34 +19,34 @@
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
       authenticated: false,
       mockAccount: [
         {
-          username: 'parent1',
-          password: 'password'
+          username: "parent1",
+          password: "password"
         },
         {
-          username: 'parent2',
-          password: 'northcoders'
+          username: "parent2",
+          password: "northcoders"
         }
       ]
-    }
+    };
   },
   methods: {
     setAuthenticated(status) {
-      this.authenticated = status
+      this.authenticated = status;
     },
     logout() {
-      this.authenticated = false
+      this.authenticated = false;
     },
     addNewParent(newParentUser) {
-      this.mockAccount = [...this.mockAccount, newParentUser]
+      this.mockAccount = [...this.mockAccount, newParentUser];
     }
   }
-}
+};
 </script>
 
 <style>
@@ -59,10 +59,13 @@ h1 {
 }
 #app {
   margin: auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .game-title {
   text-align: center;
   line-height: 4;
+  font-family: "Permanent Marker", cursive;
+  font-size: 60px;
+  margin: 0;
 }
 </style>
