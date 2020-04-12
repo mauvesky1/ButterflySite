@@ -23,44 +23,47 @@
     <button class="login-btn" type="button" v-on:click="login()">Login</button>
     <br />
     <button class="create-account-btn">
-      <router-link :to="{ name: 'createAccount' }" class="create-account-link">Create An Account</router-link>
+      <router-link :to="{ name: 'createAccount' }" class="create-account-link"
+        >Create An Account</router-link
+      >
     </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
       input: {
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       }
-    };
+    }
   },
   methods: {
     login() {
       for (let i = 0; i < this.$parent.mockAccount.length; i++) {
-        if (this.input.username !== "" && this.input.password !== "") {
+        if (this.input.username !== '' && this.input.password !== '') {
           if (
             this.input.username == this.$parent.mockAccount[i].username &&
             this.input.password == this.$parent.mockAccount[i].password
           ) {
-            this.$emit("authenticated", true);
+            this.$emit('authenticated', true)
             this.$router.replace({
-              name: "parentProfile"
-            });
+              name: 'parentProfile',
+              params: { username: this.input.username }
+            })
           } else {
-            console.log("The username and / or password is incorrect");
+            console.log('The username and / or password is incorrect')
           }
         } else {
-          console.log("A username and password must be present");
+          console.log('A username and password must be present')
         }
       }
     }
   }
-};
+}
 </script>
 
 <style scoped>
