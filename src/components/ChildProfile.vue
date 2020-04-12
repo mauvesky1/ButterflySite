@@ -2,9 +2,13 @@
   <div>
     <h1>This is the child page</h1>
     <div id="nav">
-      <router-link to="/profile/:username/collection">Butterfly Collection</router-link>
+      <router-link to="/profile/:username/collection"
+        >Butterfly Collection</router-link
+      >
       <br />
-      <router-link to="/profile/:username/butterflyhunt">Go Hunting</router-link>
+      <router-link to="/profile/:username/butterflyhunt"
+        >Go Hunting</router-link
+      >
     </div>
   </div>
 </template>
@@ -15,6 +19,4 @@ export default {
 };
 </script>
 
-
-<style scoped>
-</style>
+<style scoped></style>

@@ -1,64 +1,39 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Home from '../components/Home.vue';
-import ParentProfile from '../components/ParentProfile.vue';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import LoginComponent from '../components/LoginForm.vue'
+import ParentProfile from '../components/ParentProfile'
+import CreateAccountComponent from '../components/CreateAccount.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    redirect: {
+      name: 'login'
+    }
   },
   {
-    path: '/:username',
-    name: 'ParentProfile',
-    component: ParentProfile,
-
-    // component: () => import('../components/ParentProfile.vue'),
+    path: '/login',
+    name: 'login',
+    component: LoginComponent
   },
   {
-    path: '/profile/:username',
-    name: 'ChildProfile',
-
-    component: () => import('../components/ChildProfile.vue'),
+    path: '/createAccount',
+    name: 'createAccount',
+    component: CreateAccountComponent
   },
   {
-    path: '/:username/NewChild',
-    name: 'CreateChildProfile',
-
-    component: () => import('../components/CreateChildProfile.vue'),
-  },
-  {
-    path: '/profile/newchild/avatarimages',
-    name: 'AvatarImages',
-    component: () => import('../components/AvatarImages.vue'),
-  },
-  {
-    path: '/profile/:username/collection',
-    name: 'Collection',
-
-    component: () => import('../components/Collection.vue'),
-  },
-  {
-    path: '/profile/:username/butterflyhunt',
-    name: 'Butterflyhunt',
-
-    component: () => import('../components/Butterflyhunt.vue'),
-  },
-  {
-    path: '/profile/:username/Collection/flitzy',
-    name: 'ButterflyProfile',
-
-    component: () => import('../components/IndividualButterfly.vue'),
-  },
-];
+    path: '/profile',
+    name: 'parentProfile',
+    component: ParentProfile
+  }
+]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router
