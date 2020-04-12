@@ -1,64 +1,66 @@
 <template>
   <div id="login">
-    <h1>Sign In</h1>
-    <p class="username-login">Username</p>
+    <h1 class="sign-in-title">Sign In</h1>
+    <label class="username-login">Username</label>
     <input
       type="text"
       name="username"
       v-model="input.username"
-      placeholder="Enter username"
+      placeholder="Enter Username"
       required
     />
-    <p class="password-login">Password</p>
+    <br />
+
+    <label class="password-login">Password</label>
     <input
       type="password"
       name="password"
       v-model="input.password"
-      placeholder="Enter password"
+      placeholder="Enter Password"
       required
     />
     <br />
-    <button class="loginBtn" type="button" v-on:click="login()">Login</button>
+    <button class="login-btn" type="button" v-on:click="login()">Login</button>
     <br />
-    <button>
-      <router-link :to="{ name: 'createAccount' }" class="createAccountBtn"
-        >Create An Account</router-link
-      >
+    <button class="create-account-btn">
+      <router-link :to="{ name: 'createAccount' }" class="create-account-link">Create An Account</router-link>
     </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Login',
+  name: "Login",
   data() {
     return {
       input: {
-        username: '',
-        password: ''
+        username: "",
+        password: ""
       }
-    }
+    };
   },
   methods: {
     login() {
       for (let i = 0; i < this.$parent.mockAccount.length; i++) {
-        if (this.input.username !== '' && this.input.password !== '') {
+        if (this.input.username !== "" && this.input.password !== "") {
           if (
             this.input.username == this.$parent.mockAccount[i].username &&
             this.input.password == this.$parent.mockAccount[i].password
           ) {
-            this.$emit('authenticated', true)
-            this.$router.replace({ name: 'parentProfile' })
+            this.$emit("authenticated", true);
+            this.$router.replace({
+              name: "parentProfile"
+            });
           } else {
-            console.log('The username and / or password is incorrect')
+            console.log("The username and / or password is incorrect");
           }
         } else {
-          console.log('A username and password must be present')
+          console.log("A username and password must be present");
         }
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -66,30 +68,61 @@ export default {
   width: 400px;
   border: 1px solid #cccccc;
   background-color: #ffffff;
+  border-radius: 30px;
   margin: auto;
   margin-top: 10px;
   padding: 20px;
+  text-align: left;
+}
+.sign-in-title {
   text-align: center;
 }
 
-.loginBtn {
-  margin-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+.login-btn {
+  text-decoration: none;
   font-weight: bold;
-  color: black;
-  font-size: 15px;
+  font-size: 18px;
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  width: 100%;
 }
 
-.createAccountBtn {
-  font-weight: bold;
+.login-btn:hover {
+  background-color: rgb(16, 71, 173);
+  color: white;
+}
+
+.create-account-btn {
   text-decoration: none;
-  color: black;
-  font-size: 15px;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.create-account-btn:hover {
+  background-color: rgb(16, 71, 173);
+  color: white;
+}
+
+.create-account-link {
+  text-decoration: none;
+  color: white;
 }
 
 .username-login {
   font-weight: bold;
+  text-align: left;
 }
 
 .password-login {
