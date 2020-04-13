@@ -2,13 +2,15 @@
   <div>
     <h1 class="welcome-msg">Welcome</h1>
     <p v-for="child in childrenUsers" :key="child.id" class="child-username">
-      <img :src="child.avatar_url" class="avatar-url" />
+      <img :src="child.avatarUrl" class="avatar-url" />
       <br />
       <router-link
         :to="{ name: 'ChildProfile', params: { username: child.username } }"
         class="child-link"
       >{{ child.username }}</router-link>
     </p>
+
+    <CreateChildProfile v-on:add-new-child="addNewChild" />
 
     <div class="new-child-btn">
       <router-link :to="{ name: 'CreateChildProfile' }" class="new-child-link">Create Child Account</router-link>
@@ -17,21 +19,26 @@
 </template>
 
 <script>
+import CreateChildProfile from "./CreateChildProfile.vue";
+
 export default {
   name: "ParentProfile",
+  components: {
+    CreateChildProfile
+  },
   data() {
     return {
       childrenUsers: [
         {
           id: 1,
           username: "jessjelly",
-          avatar_url:
+          avatarUrl:
             "https://st.depositphotos.com/1218762/1320/v/600/depositphotos_13209440-stock-video-looping-jaguar-panther-leopard-puma.jpg"
         },
         {
           id: 2,
           username: "butter_bridge",
-          avatar_url:
+          avatarUrl:
             "https://i.pinimg.com/originals/e4/91/bb/e491bb4eb94f5665d3979aef7b328276.jpg"
         }
       ]

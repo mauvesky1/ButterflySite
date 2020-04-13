@@ -8,7 +8,7 @@
       >Back to Profile</router-link>
     </button>
 
-    <form id="new-child-account-login">
+    <form id="new-child-account-login" @submit="addNewChildUser">
       <label class="child-username">Username</label>
       <input type="text" v-model="childForm.username" placeholder="Enter Username" required />
 
