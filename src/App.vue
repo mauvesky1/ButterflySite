@@ -1,19 +1,16 @@
 <template>
   <div id="app">
     <h1 class="game-title">Scavenger Hunt</h1>
-    <div id="nav">
+    <router-view @authenticated="setAuthenticated" v-on:add-new-parent="addNewParent" />
+    <div id="nav" class="logout-btn">
       <router-link
+        class="logout-link"
         v-if="authenticated"
         to="/login"
         v-on:click.native="logout()"
         replace
-        >Logout</router-link
-      >
+      >Logout</router-link>
     </div>
-    <router-view
-      @authenticated="setAuthenticated"
-      v-on:add-new-parent="addNewParent"
-    />
   </div>
 </template>
 
@@ -51,7 +48,7 @@ export default {
 
 <style>
 body {
-  background-color: whitesmoke;
+  background-color: white;
 }
 h1 {
   padding: 0;
@@ -60,12 +57,28 @@ h1 {
 #app {
   margin: auto;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
 }
 .game-title {
   text-align: center;
   line-height: 4;
-  font-family: "Permanent Marker", cursive;
+  font-family: "Megrim", cursive;
   font-size: 60px;
   margin: 0;
+}
+.logout-link {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  width: 100%;
+}
+.logout-btn {
+  margin-top: 50px;
 }
 </style>
