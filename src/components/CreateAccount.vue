@@ -3,6 +3,9 @@
     <h1 class="createAccount-title">Create An Account</h1>
 
     <form @submit="addNewParentUser">
+      <label class="email-signup">E-mail</label>
+      <input type="text" name="email" v-model="input.email" placeholder="Enter Email" required />
+
       <label class="username-signup">Username</label>
       <input
         type="text"
@@ -43,11 +46,9 @@
       <button
         class="signUpBtn"
         type="submit"
-        v-on:click="
-          input.username.length !== 0 && input.password.length !== 0 && input.confirmPassword.length !== 0
+        v-on:click="clickHandler && input.username.length !== 0 && input.password.length !== 0 && input.confirmPassword.length !== 0
             ? (input.signedUp = !input.signedUp)
-            : (input.signedUp = false)
-        "
+            : (input.signedUp = false)"
       >Sign Up</button>
     </form>
 
@@ -58,11 +59,16 @@
 </template>
 
 <script>
+import * as firebase from "firebase";
+import "@firebase/auth";
+import { firestore } from "firebase";
+
 export default {
   name: "CreateAccount",
   data() {
     return {
       input: {
+        email: "",
         username: "",
         password: "",
         confirmPassword: "",
@@ -74,6 +80,7 @@ export default {
     addNewParentUser(event) {
       event.preventDefault();
       const newParentUser = {
+        email: this.input.email,
         username: this.input.username,
         password: this.input.password
       };
@@ -81,9 +88,21 @@ export default {
       if (this.input.password === this.input.confirmPassword) {
         this.$emit("add-new-parent", newParentUser);
       }
-      (this.input.username = ""),
+      (this.input.email = ""),
+        (this.input.username = ""),
         (this.input.password = ""),
         (this.input.confirmPassword = "");
+    },
+    clickHandler() {
+      const auth = firebase.auth();
+      auth.createUserWithEmailAndPassword(
+        this.input.email,
+        this.input.password
+      );
+
+      const docRef = firestore().doc(`parents/${this.input.username}`);
+
+      docRef.set({ username: this.input.username });
     }
   }
 };
@@ -157,6 +176,11 @@ input[type="password"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 40px;
+}
+
+.email-signup {
+  font-weight: bold;
+  color: black;
 }
 
 .username-signup {

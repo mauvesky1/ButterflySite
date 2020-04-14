@@ -4,9 +4,7 @@
     <ul>
       <li>
         Flitzy
-        <router-link to="/profile/:username/collection/flitzy"
-          >Find more information about Flitzy!</router-link
-        >
+        <router-link :to="{name: 'IndividualButterfly'}">Find more information about Flitzy!</router-link>
       </li>
     </ul>
   </div>
