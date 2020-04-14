@@ -11,10 +11,13 @@
     "aframe": "^1.0.4",
     "ar.js": "^2.2.2",
     "core-js": "^3.6.4",
+    "firebase": "^7.14.0",
+    "firebase-auth": "^0.1.2",
     "vee-validate": "^3.2.5",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "vue-router-back-button": "^1.2.3",
+    "vuefire": "^2.2.2",
     "vuelidate": "^0.7.5"
   },
   "devDependencies": {

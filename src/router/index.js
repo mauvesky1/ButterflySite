@@ -5,6 +5,9 @@ import ParentProfile from '../components/ParentProfile'
 import CreateAccountComponent from '../components/CreateAccount.vue'
 import ChildProfileComponent from '../components/ChildProfile.vue'
 import CreateChildProfileComponent from '../components/CreateChildProfile.vue'
+import ButterflyHuntComponent from '../components/Butterflyhunt.vue'
+import CollectionComponent from '../components/Collection.vue'
+import IndividualButterflyComponent from '../components/IndividualButterfly.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +42,21 @@ const routes = [
     path: '/:username',
     name: 'ChildProfile',
     component: ChildProfileComponent
+  },
+  {
+    path: '/:username/butterflyhunt',
+    name: 'Butterflyhunt',
+    component: ButterflyHuntComponent
+  },
+  {
+    path: '/:username/collection',
+    name: 'Collection',
+    component: CollectionComponent
+  },
+  {
+    path: '/:username/collection/name',
+    name: 'IndividualButterfly',
+    component: IndividualButterflyComponent
   }
 ]
 

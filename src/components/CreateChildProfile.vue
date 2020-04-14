@@ -1,13 +1,5 @@
 <template>
   <div>
-    <button class="back-btn">
-      <router-link
-        v-if="$routerHistory.hasPrevious()"
-        :to="{ path: $routerHistory.previous().path }"
-        class="back-link"
-      >Back to Profile</router-link>
-    </button>
-
     <form id="new-child-account-login" @submit="addNewChildUser">
       <label class="child-username">Username</label>
       <input type="text" v-model="childForm.username" placeholder="Enter Username" required />
@@ -32,11 +24,9 @@
       <button
         class="sign-up-btn"
         type="submit"
-        v-on:click="
-          childForm.username.length !== 0 && childForm.avatarUrl.length !== 0
+        v-on:click="childForm.username.length !== 0 && childForm.avatarUrl.length !== 0
             ? (childForm.signedUp = !childForm.signedUp)
-            : (childForm.signedUp = false)
-        "
+            : (childForm.signedUp = false)"
       >Sign Up</button>
     </form>
   </div>
@@ -101,17 +91,6 @@ export default {
 .back-link {
   text-decoration: none;
   color: white;
-}
-
-.back-btn {
-  font-weight: bold;
-  font-size: 18px;
-  background-color: black;
-  color: white;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
 }
 
 .child-username {
