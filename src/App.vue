@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <h1 class="game-title">Scavenger Hunt</h1>
-    <router-view @authenticated="setAuthenticated" v-on:add-new-parent="addNewParent" />
+    <router-view
+      @authenticated="setAuthenticated"
+      v-on:add-new-parent="addNewParent"
+      v-bind:mockAccount="mockAccount"
+    />
     <div id="nav" class="logout-btn">
       <router-link
         class="logout-link"

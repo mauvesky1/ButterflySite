@@ -43,13 +43,7 @@
         class="signedUp-msg"
         v-if="input.signedUp && input.password === input.confirmPassword"
       >You have created an account!</p>
-      <button
-        class="signUpBtn"
-        type="submit"
-        v-on:click="clickHandler && input.username.length !== 0 && input.password.length !== 0 && input.confirmPassword.length !== 0
-            ? (input.signedUp = !input.signedUp)
-            : (input.signedUp = false)"
-      >Sign Up</button>
+      <button class="signUpBtn" type="submit" v-on:click="clickHandler">Sign Up</button>
     </form>
 
     <button class="backToLogIn">

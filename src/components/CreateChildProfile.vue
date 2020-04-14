@@ -16,7 +16,7 @@
           @click="childForm.avatarUrl = animalType.imageUrl"
         />
         <br />
-        {{animalType.animal}}
+        {{ animalType.animal }}
       </p>
 
       <p v-if="childForm.signedUp" class="new-account-msg">You have created an account!</p>
@@ -24,15 +24,19 @@
       <button
         class="sign-up-btn"
         type="submit"
-        v-on:click="childForm.username.length !== 0 && childForm.avatarUrl.length !== 0
+        v-on:click="
+          childForm.username.length !== 0 && childForm.avatarUrl.length !== 0
             ? (childForm.signedUp = !childForm.signedUp)
-            : (childForm.signedUp = false)"
+            : (childForm.signedUp = false)
+        "
       >Sign Up</button>
     </form>
   </div>
 </template>
 
 <script>
+import { firestore } from "firebase";
+
 export default {
   name: "CreateChildProfile",
   data() {
@@ -63,6 +67,14 @@ export default {
   methods: {
     addNewChildUser(event) {
       event.preventDefault();
+      console.log(window.localStorage.uid, "the right one");
+
+      const docRef = firestore().doc(
+        `parents/${window.localStorage.uid}/userProfiles/${this.childForm.username}`
+      );
+
+      docRef.set({ username: this.childForm.username });
+
       const newChildUser = {
         username: this.childForm.username,
         avatarUrl: this.childForm.avatarUrl

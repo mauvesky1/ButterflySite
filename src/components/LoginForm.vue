@@ -1,14 +1,8 @@
 <template>
   <div id="login">
     <h1 class="sign-in-title">Sign In</h1>
-    <label class="username-login">Username</label>
-    <input
-      type="text"
-      name="username"
-      v-model="input.username"
-      placeholder="Enter Username"
-      required
-    />
+    <label class="email-login">Email</label>
+    <input type="text" name="username" v-model="input.email" placeholder="Enter Email" required />
     <br />
 
     <label class="password-login">Password</label>
@@ -29,35 +23,41 @@
 </template>
 
 <script>
+import * as firebase from "firebase";
+import "@firebase/auth";
 export default {
   name: "Login",
+  props: ["mockAccount"],
+
   data() {
     return {
       input: {
-        username: "",
+        email: "",
         password: ""
       }
     };
   },
   methods: {
     login() {
-      for (let i = 0; i < this.$parent.mockAccount.length; i++) {
-        if (this.input.username !== "" && this.input.password !== "") {
-          if (
-            this.input.username == this.$parent.mockAccount[i].username &&
-            this.input.password == this.$parent.mockAccount[i].password
-          ) {
+      const auth = firebase.auth();
+
+      if (this.input.email !== "" && this.input.password !== "") {
+        auth
+          .signInWithEmailAndPassword(this.input.email, this.input.password)
+          .then(cred => {
+            window.localStorage.setItem("uid", cred.user.uid);
+
             this.$emit("authenticated", true);
             this.$router.replace({
               name: "parentProfile",
-              params: { username: this.input.username }
+              params: { username: this.input.email }
             });
-          } else {
-            console.log("The username and / or password is incorrect");
-          }
-        } else {
-          console.log("A username and password must be present");
-        }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      } else {
+        console.log("A username and password must be present");
       }
     }
   }
