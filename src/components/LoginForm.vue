@@ -1,24 +1,35 @@
 <template>
   <div id="login">
-    <h1 class="sign-in-title">Sign In</h1>
-    <label class="email-login">Email</label>
-    <input type="text" name="username" v-model="input.email" placeholder="Enter Email" required />
-    <br />
+    <form class="login-form">
+      <h1 class="signIn-title">Sign In</h1>
 
-    <label class="password-login">Password</label>
-    <input
-      type="password"
-      name="password"
-      v-model="input.password"
-      placeholder="Enter Password"
-      required
-    />
-    <br />
-    <button class="login-btn" type="button" v-on:click="login()">Login</button>
-    <br />
-    <button class="create-account-btn">
-      <router-link :to="{ name: 'createAccount' }" class="create-account-link">Create An Account</router-link>
-    </button>
+      <label class="email-login">Email</label>
+      <input
+        type="text"
+        name="username"
+        v-model="input.email"
+        placeholder="Enter Email"
+        class="email-input"
+        required
+      />
+      <br />
+
+      <label class="password-login">Password</label>
+      <input
+        type="password"
+        name="password"
+        v-model="input.password"
+        placeholder="Enter Password"
+        class="password-input"
+        required
+      />
+      <br />
+      <button class="signIn-btn" type="button" v-on:click="login()">Sign In</button>
+      <br />
+      <button class="create-account-btn">
+        <router-link :to="{ name: 'createAccount' }" class="create-account-link">Create An Account</router-link>
+      </button>
+    </form>
   </div>
 </template>
 
@@ -27,8 +38,6 @@ import * as firebase from "firebase";
 import "@firebase/auth";
 export default {
   name: "Login",
-  props: ["mockAccount"],
-
   data() {
     return {
       input: {
@@ -65,42 +74,41 @@ export default {
 </script>
 
 <style scoped>
-#login {
-  width: 400px;
-  border: 1px solid #cccccc;
-  background-color: #ffffff;
-  border-radius: 30px;
-  margin: auto;
-  margin-top: 10px;
-  padding: 20px;
-  text-align: left;
-}
-.sign-in-title {
-  text-align: center;
+@media (min-width: 500px) {
+  #login {
+    width: 400px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    border-radius: 30px;
+    margin: auto;
+    padding: 20px;
+    text-align: left;
+    display: grid;
+  }
 }
 
-.login-btn {
+.signIn-title {
+  color: grey;
+  font-size: 35px;
+  margin-top: 0;
+}
+
+.signIn-btn {
   text-decoration: none;
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
   background-color: black;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 100%;
-}
-
-.login-btn:hover {
-  background-color: rgb(16, 71, 173);
-  color: white;
+  width: 60%;
 }
 
 .create-account-btn {
   text-decoration: none;
-  font-weight: bold;
   font-size: 18px;
   background-color: black;
   padding: 14px 20px;
@@ -108,12 +116,7 @@ export default {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 100%;
-}
-
-.create-account-btn:hover {
-  background-color: rgb(16, 71, 173);
-  color: white;
+  width: 60%;
 }
 
 .create-account-link {
@@ -121,12 +124,26 @@ export default {
   color: white;
 }
 
-.username-login {
-  font-weight: bold;
-  text-align: left;
+.email-login {
+  font-size: 18px;
+}
+
+.email-input {
+  box-shadow: 4px 5px 5px grey;
+  margin-bottom: 30px;
 }
 
 .password-login {
-  font-weight: bold;
+  font-size: 18px;
+}
+
+.password-input {
+  box-shadow: 4px 5px 5px grey;
+}
+
+.login-form {
+  text-align: center;
+  margin-top: 80px;
+  margin: 0;
 }
 </style>

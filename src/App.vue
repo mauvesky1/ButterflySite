@@ -66,24 +66,20 @@ export default {
 
 <style>
 body {
-  background-color: white;
+  background-color: whitesmoke;
 }
-h1 {
-  padding: 0;
-  margin-top: 0;
-}
+
 #app {
   margin: auto;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Mako", sans-serif;
   text-align: center;
 }
+
 .game-title {
-  text-align: center;
-  line-height: 4;
-  font-family: "Megrim", cursive;
   font-size: 60px;
-  margin: 0;
+  font-family: Megrim;
 }
+
 .logout-link {
   text-decoration: none;
   font-weight: bold;
@@ -98,5 +94,14 @@ h1 {
 }
 .logout-btn {
   margin-top: 50px;
+}
+@media (max-width: 470px) {
+  .game-title {
+    font-size: 50px;
+    font-family: Megrim;
+    margin-bottom: 70px;
+    margin: 10px 0px 30px;
+    padding: 0px;
+  }
 }
 </style>
