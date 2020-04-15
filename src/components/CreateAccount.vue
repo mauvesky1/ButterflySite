@@ -1,9 +1,9 @@
 <template>
   <div id="new-account-login">
-    <h1 class="createAccount-title">Create An Account</h1>
+    <h1 class="signUp-title">Sign Up</h1>
 
     <form @submit="addNewParentUser">
-      <label class="email-signup">E-mail</label>
+      <label class="email-signup">Email</label>
       <input type="text" name="email" v-model="input.email" placeholder="Enter Email" required />
 
       <label class="username-signup">Username</label>
@@ -47,7 +47,7 @@
     </form>
 
     <button class="backToLogIn">
-      <router-link :to="{ name: 'login' }" class="backToLogIn">Back to log in</router-link>
+      <router-link :to="{ name: 'login' }" class="backToLogIn">Back to Log In</router-link>
     </button>
   </div>
 </template>
@@ -97,55 +97,65 @@ export default {
       const docRef = firestore().doc(`parents/${this.input.username}`);
 
       docRef.set({ username: this.input.username });
+
+      if (
+        this.input.username.length !== 0 &&
+        this.input.password.length !== 0 &&
+        this.input.confirmPassword.length !== 0
+      ) {
+        this.input.signedUp = !this.input.signedUp;
+      } else {
+        this.input.signedUp = false;
+      }
     }
   }
 };
 </script>
 
 <style>
-#new-account-login {
-  width: 400px;
-  border: 1px solid #cccccc;
-  margin: auto;
-  margin-top: 10px;
-  padding: 20px;
-  color: white;
-  border-radius: 30px;
-  background-color: white;
+@media (min-width: 500px) {
+  #new-account-login {
+    width: 400px;
+    border: 1px solid #cccccc;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+    color: white;
+    border-radius: 30px;
+    background-color: white;
+  }
 }
+
+.signUp-title {
+  color: grey;
+  font-size: 35px;
+}
+
 .valid-password {
   color: black;
 }
 .invalid-password {
   color: black;
 }
-.createAccount-title {
-  text-align: center;
-  color: black;
-}
+
 .signUpBtn {
   text-decoration: none;
-  font-weight: bold;
   font-size: 18px;
   background-color: black;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 100%;
+  width: 50%;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
-.signUpBtn:hover {
-  background-color: rgb(16, 71, 173);
-  color: white;
-}
+
 .backToLogIn {
   text-decoration: none;
   color: black;
-  font-weight: bold;
   text-decoration: none;
-  font-weight: bold;
   font-size: 18px;
   background-color: black;
   color: white;
@@ -154,42 +164,42 @@ export default {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 100%;
-}
-.backToLogIn:hover {
-  background-color: rgb(16, 71, 173);
-  color: white;
+  width: 50%;
 }
 
 input[type="text"],
 input[type="password"] {
-  width: 100%;
-  padding: 12px 20px;
+  width: 95%;
+  padding: 15px 20px;
   margin: 8px 0;
+  margin-bottom: 25px;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 40px;
+  box-shadow: 4px 5px 5px grey;
 }
 
 .email-signup {
-  font-weight: bold;
   color: black;
+  font-size: 18px;
 }
 
 .username-signup {
-  font-weight: bold;
   color: black;
+  font-size: 18px;
 }
 
 .password-signup {
-  font-weight: bold;
   color: black;
+  font-size: 18px;
 }
+
 .confirm-password {
   color: black;
-  font-weight: bold;
+  font-size: 18px;
 }
+
 .signedUp-msg {
   color: white;
   font-weight: bold;
