@@ -89,14 +89,19 @@ export default {
     },
     clickHandler() {
       const auth = firebase.auth();
+
       auth.createUserWithEmailAndPassword(
         this.input.email,
         this.input.password
       );
 
-      const docRef = firestore().doc(`parents/${this.input.username}`);
-
-      docRef.set({ username: this.input.username });
+      firestore()
+        .collection("parents")
+        .add({ username: this.input.username })
+        .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+          window.localStorage.setItem("parentDoc", docRef.id);
+        });
 
       if (
         this.input.username.length !== 0 &&
@@ -135,7 +140,8 @@ export default {
   color: black;
 }
 .invalid-password {
-  color: black;
+  color: red;
+  font-weight: bold;
 }
 
 .signUpBtn {

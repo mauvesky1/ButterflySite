@@ -1,5 +1,13 @@
 <template>
   <div>
+    <button class="back-btn">
+      <router-link
+        v-if="$routerHistory.hasPrevious()"
+        :to="{ path: $routerHistory.previous().path }"
+        class="back-link"
+      >Back to Collection</router-link>
+    </button>
+
     <h1>Name: Flitzy</h1>
     <img
       class="butterflyImg"
