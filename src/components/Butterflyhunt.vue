@@ -15,7 +15,7 @@
       src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"
     ></script>
   </head>
-  <iframe :src="url" width="500" height="500" allow="camera"></iframe>
+  <iframe :src="url" width="500" height="500" allow="camera * ;"></iframe>
 </html>
 </template>
 
