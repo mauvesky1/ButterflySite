@@ -1,23 +1,28 @@
 <template>
   <div>
+    <Header />
     <button class="back-btn">
       <router-link
         v-if="$routerHistory.hasPrevious()"
         :to="{ path: $routerHistory.previous().path }"
         class="back-link"
-      >Back to Parent Profile</router-link>
+        >Back to Parent Profile</router-link
+      >
     </button>
 
-    <h1>Welcome {{$route.params.username}}</h1>
+    <h1>Welcome {{ $route.params.username }}</h1>
     <div id="nav">
-      <router-link :to="{name: 'Collection'}">Butterfly Collection</router-link>
+      <router-link :to="{ name: 'Collection' }"
+        >Butterfly Collection</router-link
+      >
       <br />
-      <router-link :to="{name: 'Butterflyhunt'}">Go Hunting</router-link>
+      <router-link :to="{ name: 'Butterflyhunt' }">Go Hunting</router-link>
     </div>
   </div>
 </template>
 
 <script>
+import Header from "./Header.vue";
 export default {
   name: "ChildProfile",
   data() {
@@ -28,7 +33,8 @@ export default {
       //   })
       // })
     };
-  }
+  },
+  components: { Header },
 };
 </script>
 

@@ -1,39 +1,51 @@
 <template>
-  <div id="login">
-    <form class="login-form">
-      <h1 class="signIn-title">Sign In</h1>
+  <div>
+    <Header />
+    <IntroMessage />
+    <div id="login">
+      <form class="login-form">
+        <h1 class="signIn-title">Sign In</h1>
 
-      <label class="email-login">Email</label>
-      <input
-        type="text"
-        name="username"
-        v-model="input.email"
-        placeholder="Enter Email"
-        class="email-input"
-        required
-      />
-      <br />
+        <label class="email-login">Email</label>
+        <input
+          type="text"
+          name="username"
+          v-model="input.email"
+          placeholder="Enter Email"
+          class="email-input"
+          required
+        />
+        <br />
 
-      <label class="password-login">Password</label>
-      <input
-        type="password"
-        name="password"
-        v-model="input.password"
-        placeholder="Enter Password"
-        class="password-input"
-        required
-      />
-      <br />
-      <button class="signIn-btn" type="button" v-on:click="login()">Sign In</button>
-      <br />
-      <button class="create-account-btn">
-        <router-link :to="{ name: 'createAccount' }" class="create-account-link">Create An Account</router-link>
-      </button>
-    </form>
+        <label class="password-login">Password</label>
+        <input
+          type="password"
+          name="password"
+          v-model="input.password"
+          placeholder="Enter Password"
+          class="password-input"
+          required
+        />
+        <br />
+        <button class="signIn-btn" type="button" v-on:click="login()">
+          Sign In
+        </button>
+        <br />
+        <button class="create-account-btn">
+          <router-link
+            :to="{ name: 'createAccount' }"
+            class="create-account-link"
+            >Create An Account</router-link
+          >
+        </button>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
+import Header from "./Header.vue";
+import IntroMessage from "./IntroMessage.vue";
 import * as firebase from "firebase";
 import "@firebase/auth";
 
@@ -43,9 +55,13 @@ export default {
     return {
       input: {
         email: "",
-        password: ""
-      }
+        password: "",
+      },
     };
+  },
+  components: {
+    IntroMessage,
+    Header,
   },
   methods: {
     login() {
@@ -54,27 +70,44 @@ export default {
       if (this.input.email !== "" && this.input.password !== "") {
         auth
           .signInWithEmailAndPassword(this.input.email, this.input.password)
-          .then(cred => {
+          .then((cred) => {
             window.localStorage.setItem("uid", cred.user.uid);
 
             this.$emit("authenticated", true);
             this.$router.replace({
               name: "parentProfile",
-              params: { parentusername: this.input.email }
+              params: { parentusername: this.input.email },
             });
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
           });
       } else {
         console.log("A username and password must be present");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
+@font-face {
+  font-family: "Pacifico";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/pacifico-v16-latin-regular.eot"); /* IE9 Compat Modes */
+  src: local("Pacifico Regular"), local("Pacifico-Regular"),
+    url("../fonts/pacifico-v16-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/pacifico-v16-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/pacifico-v16-latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */ url("../fonts/pacifico-v16-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../fonts/pacifico-v16-latin-regular.svg#Pacifico") format("svg"); /* Legacy iOS */
+}
 @media (min-width: 500px) {
   #login {
     width: 400px;
@@ -90,8 +123,9 @@ export default {
 
 .signIn-title {
   color: grey;
-  font-size: 35px;
+  font-size: 2em;
   margin-top: 0;
+  font-family: Pacifico;
 }
 
 .signIn-btn {

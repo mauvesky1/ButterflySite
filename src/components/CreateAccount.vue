@@ -1,58 +1,78 @@
 <template>
-  <div id="new-account-login">
-    <h1 class="signUp-title">Sign Up</h1>
+  <div>
+    <Header />
+    <IntroMessage />
+    <div id="new-account-login">
+      <h1 class="signUp-title">Sign Up</h1>
 
-    <form @submit="addNewParentUser">
-      <label class="email-signup">Email</label>
-      <input type="text" name="email" v-model="input.email" placeholder="Enter Email" required />
+      <form @submit="addNewParentUser">
+        <label class="email-signup">Email</label>
+        <input
+          type="text"
+          name="email"
+          v-model="input.email"
+          placeholder="Enter Email"
+          required
+        />
 
-      <label class="username-signup">Username</label>
-      <input
-        type="text"
-        name="username"
-        v-model="input.username"
-        placeholder="Enter Username"
-        required
-      />
+        <label class="username-signup">Username</label>
+        <input
+          type="text"
+          name="username"
+          v-model="input.username"
+          placeholder="Enter Username"
+          required
+        />
 
-      <label class="password-signup">Password</label>
-      <input
-        type="password"
-        name="password"
-        v-model="input.password"
-        placeholder="Enter Password"
-        required
-      />
+        <label class="password-signup">Password</label>
+        <input
+          type="password"
+          name="password"
+          v-model="input.password"
+          placeholder="Enter Password"
+          required
+        />
 
-      <label class="confirm-password">Confirm Password</label>
-      <input
-        type="password"
-        name="confirmPassword"
-        v-model="input.confirmPassword"
-        placeholder="Confirm Password"
-        required
-      />
+        <label class="confirm-password">Confirm Password</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          v-model="input.confirmPassword"
+          placeholder="Confirm Password"
+          required
+        />
 
-      <br />
-      <p
-        v-if="input.password !== input.confirmPassword"
-        class="invalid-password"
-      >Passwords do not match!</p>
+        <br />
+        <p
+          v-if="input.password !== input.confirmPassword"
+          class="invalid-password"
+        >
+          Passwords do not match!
+        </p>
 
-      <p
-        class="signedUp-msg"
-        v-if="input.signedUp && input.password === input.confirmPassword"
-      >You have created an account!</p>
-      <button class="signUpBtn" type="submit" v-on:click="clickHandler">Sign Up</button>
-    </form>
+        <p
+          class="signedUp-msg"
+          v-if="input.signedUp && input.password === input.confirmPassword"
+        >
+          You have created an account!
+        </p>
+        <button class="signUpBtn" type="submit" v-on:click="clickHandler">
+          Sign Up
+        </button>
+      </form>
 
-    <button class="backToLogIn">
-      <router-link :to="{ name: 'login' }" class="backToLogIn">Back to Log In</router-link>
-    </button>
+      <button class="backToLogIn">
+        <router-link :to="{ name: 'login' }" class="backToLogIn"
+          >Back to Log In</router-link
+        >
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
+import Header from "./Header.vue";
+import IntroMessage from "./IntroMessage";
 import * as firebase from "firebase";
 import "@firebase/auth";
 import { firestore } from "firebase";
@@ -66,9 +86,13 @@ export default {
         username: "",
         password: "",
         confirmPassword: "",
-        signedUp: false
-      }
+        signedUp: false,
+      },
     };
+  },
+  components: {
+    IntroMessage,
+    Header,
   },
   methods: {
     addNewParentUser(event) {
@@ -76,7 +100,7 @@ export default {
       const newParentUser = {
         email: this.input.email,
         username: this.input.username,
-        password: this.input.password
+        password: this.input.password,
       };
 
       if (this.input.password === this.input.confirmPassword) {
@@ -112,8 +136,8 @@ export default {
       } else {
         this.input.signedUp = false;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
