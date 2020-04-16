@@ -79,8 +79,7 @@ export default {
 
       docRef.set({
         username: this.childForm.username,
-        avatarUrl:
-          "https://st.depositphotos.com/1218762/1320/v/600/depositphotos_13209440-stock-video-looping-jaguar-panther-leopard-puma.jpg"
+        avatarUrl: this.childForm.avatarUrl
       });
 
       const newChildUser = {

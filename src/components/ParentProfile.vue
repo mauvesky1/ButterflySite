@@ -41,13 +41,10 @@ export default {
             username: child.lm.Ee.proto.mapValue.fields.username.stringValue,
             avatarUrl: child.lm.Ee.proto.mapValue.fields.avatarUrl.stringValue
           });
-          console.log(this.childrenUsers);
         });
       });
   },
   methods: {
-    getAllChildren() {},
-
     addNewChild(newChildUser) {
       this.childrenUsers = [...this.childrenUsers, newChildUser];
     }
