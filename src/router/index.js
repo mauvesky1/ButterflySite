@@ -15,55 +15,55 @@ const routes = [
   {
     path: '/',
     redirect: {
-      name: 'login'
-    }
+      name: 'login',
+    },
   },
   {
     path: '/login',
     name: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: '/createAccount',
     name: 'createAccount',
-    component: CreateAccountComponent
+    component: CreateAccountComponent,
   },
   {
-    path: '/profile/:username',
+    path: '/profile/:parentusername',
     name: 'parentProfile',
-    component: ParentProfile
+    component: ParentProfile,
   },
   {
-    path: '/profile/:username/createChildAccount',
+    path: '/profile/:parentusername/createChildAccount',
     name: 'CreateChildProfile',
-    component: CreateChildProfileComponent
+    component: CreateChildProfileComponent,
   },
   {
-    path: '/:username',
+    path: '/:parentusername/:username',
     name: 'ChildProfile',
-    component: ChildProfileComponent
+    component: ChildProfileComponent,
   },
   {
-    path: '/:username/butterflyhunt',
+    path: '/:parentusername/:username/butterflyhunt',
     name: 'Butterflyhunt',
-    component: ButterflyHuntComponent
+    component: ButterflyHuntComponent,
   },
   {
-    path: '/:username/collection',
+    path: '/:parentusername/:username/collection',
     name: 'Collection',
-    component: CollectionComponent
+    component: CollectionComponent,
   },
   {
-    path: '/:username/collection/name',
+    path: '/:parentusername/:username/collection/name',
     name: 'IndividualButterfly',
-    component: IndividualButterflyComponent
-  }
+    component: IndividualButterflyComponent,
+  },
 ]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
 })
 
 export default router

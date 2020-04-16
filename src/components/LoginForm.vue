@@ -36,6 +36,7 @@
 <script>
 import * as firebase from "firebase";
 import "@firebase/auth";
+
 export default {
   name: "Login",
   data() {
@@ -59,7 +60,7 @@ export default {
             this.$emit("authenticated", true);
             this.$router.replace({
               name: "parentProfile",
-              params: { username: this.input.email }
+              params: { parentusername: this.input.email }
             });
           })
           .catch(err => {

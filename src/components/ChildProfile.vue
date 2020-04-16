@@ -5,9 +5,10 @@
         v-if="$routerHistory.hasPrevious()"
         :to="{ path: $routerHistory.previous().path }"
         class="back-link"
-      >Back to Profile</router-link>
+      >Back to Parent Profile</router-link>
     </button>
-    <h1>This is the child page</h1>
+
+    <h1>Welcome {{$route.params.username}}</h1>
     <div id="nav">
       <router-link :to="{name: 'Collection'}">Butterfly Collection</router-link>
       <br />
@@ -18,7 +19,16 @@
 
 <script>
 export default {
-  name: "ChildProfile"
+  name: "ChildProfile",
+  data() {
+    return {
+      //collection("parent/parentdoc/children").then(children =>{
+      //   children.forEach(child =>{
+      //     if(child.username ==)
+      //   })
+      // })
+    };
+  }
 };
 </script>
 

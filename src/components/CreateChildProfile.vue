@@ -1,6 +1,10 @@
 <template>
   <div>
-    <form id="new-child-account-login" @submit="addNewChildUser">
+    <button
+      class="create-child-link"
+      v-on:click="childForm.showForm = !childForm.showForm"
+    >Create Child Account</button>
+    <form id="new-child-account-login" @submit="addNewChildUser" v-if="childForm.showForm">
       <label class="child-username">Username</label>
       <input type="text" v-model="childForm.username" placeholder="Enter Username" required />
 
@@ -44,7 +48,8 @@ export default {
       childForm: {
         username: "",
         avatarUrl: "",
-        signedUp: false
+        signedUp: false,
+        showForm: false
       },
       avatarImages: [
         {
@@ -67,13 +72,16 @@ export default {
   methods: {
     addNewChildUser(event) {
       event.preventDefault();
-      console.log(window.localStorage.uid, "the right one");
 
       const docRef = firestore().doc(
-        `parents/${window.localStorage.uid}/userProfiles/${this.childForm.username}`
+        `parents/${window.localStorage.parentDoc}/userProfiles/${this.childForm.username}`
       );
 
-      docRef.set({ username: this.childForm.username });
+      docRef.set({
+        username: this.childForm.username,
+        avatarUrl:
+          "https://st.depositphotos.com/1218762/1320/v/600/depositphotos_13209440-stock-video-looping-jaguar-panther-leopard-puma.jpg"
+      });
 
       const newChildUser = {
         username: this.childForm.username,
@@ -81,7 +89,7 @@ export default {
       };
 
       this.$emit("add-new-child", newChildUser);
-      (this.childForm.username = ""), (this.childForm.avatarUrl = "");
+      this.childForm.avatarUrl = "";
     }
   }
 };
@@ -116,7 +124,7 @@ export default {
 }
 
 .avatar-img {
-  width: 150px;
+  width: 95px;
   cursor: pointer;
   margin-right: 20px;
   margin-left: 20px;
@@ -150,5 +158,18 @@ export default {
   background-color: rgb(16, 71, 173);
   border-radius: 20px;
   padding: 12px 20px;
+}
+
+.create-child-link {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  width: 250px;
 }
 </style>
