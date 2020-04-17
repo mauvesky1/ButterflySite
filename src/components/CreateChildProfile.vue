@@ -74,7 +74,7 @@ export default {
       event.preventDefault();
 
       const docRef = firestore().doc(
-        `parents/${window.localStorage.parentDoc}/userProfiles/${this.childForm.username}`
+        `parents/${window.localStorage.uid}/userProfiles/${this.childForm.username}`
       );
 
       docRef.set({

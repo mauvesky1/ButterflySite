@@ -32,8 +32,9 @@ export default {
     };
   },
   created() {
+    console.log(window.localStorage.uid);
     firestore()
-      .collection(`parents/${window.localStorage.parentDoc}/userProfiles`)
+      .collection(`parents/${window.localStorage.uid}/userProfiles`)
       .get()
       .then(children => {
         children.docs.forEach(child => {
