@@ -3,15 +3,35 @@
     <button
       class="create-child-link"
       v-on:click="childForm.showForm = !childForm.showForm"
-    >Create Child Account</button>
-    <form id="new-child-account-login" @submit="addNewChildUser" v-if="childForm.showForm">
+    >
+      Create Child Account
+    </button>
+    <form
+      id="new-child-account-login"
+      @submit="addNewChildUser"
+      v-if="childForm.showForm"
+    >
       <label class="child-username">Username</label>
-      <input type="text" v-model="childForm.username" placeholder="Enter Username" required />
+      <input
+        type="text"
+        v-model="childForm.username"
+        placeholder="Enter Username"
+        required
+      />
 
       <label class="avatar-title">Choose an avatar:</label>
-      <input type="text" v-model="childForm.avatarUrl" placeholder="Enter avatar animal" required />
+      <input
+        type="text"
+        v-model="childForm.avatarUrl"
+        placeholder="Enter avatar animal"
+        required
+      />
 
-      <p v-for="animalType in avatarImages" :key="animalType.id" class="animal-type">
+      <p
+        v-for="animalType in avatarImages"
+        :key="animalType.id"
+        class="animal-type"
+      >
         <br />
         <img
           :src="animalType.imageUrl"
@@ -23,7 +43,9 @@
         {{ animalType.animal }}
       </p>
 
-      <p v-if="childForm.signedUp" class="new-account-msg">You have created an account!</p>
+      <p v-if="childForm.signedUp" class="new-account-msg">
+        You have created an account!
+      </p>
 
       <button
         class="sign-up-btn"
@@ -33,7 +55,9 @@
             ? (childForm.signedUp = !childForm.signedUp)
             : (childForm.signedUp = false)
         "
-      >Sign Up</button>
+      >
+        Sign Up
+      </button>
     </form>
   </div>
 </template>
@@ -49,7 +73,7 @@ export default {
         username: "",
         avatarUrl: "",
         signedUp: false,
-        showForm: false
+        showForm: false,
       },
       avatarImages: [
         {
@@ -57,16 +81,16 @@ export default {
           animal: "Monkey",
           imageUrl:
             "https://i.pinimg.com/originals/b7/e0/38/b7e03818a217be00331cb18645351c62.jpg",
-          chosen: false
+          chosen: false,
         },
         {
           id: 2,
           animal: "Giraffe",
           imageUrl:
             "https://i.pinimg.com/600x315/56/12/94/56129403b7ca6ecd388cdff3d5b23978.jpg",
-          chosen: false
-        }
-      ]
+          chosen: false,
+        },
+      ],
     };
   },
   methods: {
@@ -79,18 +103,18 @@ export default {
 
       docRef.set({
         username: this.childForm.username,
-        avatarUrl: this.childForm.avatarUrl
+        avatarUrl: this.childForm.avatarUrl,
       });
 
       const newChildUser = {
         username: this.childForm.username,
-        avatarUrl: this.childForm.avatarUrl
+        avatarUrl: this.childForm.avatarUrl,
       };
 
       this.$emit("add-new-child", newChildUser);
       this.childForm.avatarUrl = "";
-    }
-  }
+    },
+  },
 };
 </script>
 
