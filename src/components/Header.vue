@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "Header",
+  name: "Header"
 };
 </script>
 
@@ -29,6 +29,7 @@ export default {
 }
 
 .header {
+  color: #2a938f;
   font-family: Pacifico;
   font-size: 5em;
   font-weight: bolder;
