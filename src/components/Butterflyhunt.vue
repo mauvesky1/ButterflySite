@@ -5,8 +5,7 @@
         v-if="$routerHistory.hasPrevious()"
         :to="{ path: $routerHistory.previous().path }"
         class="back-link"
-        >Back to Child Profile</router-link
-      >
+      >Back to Child Profile</router-link>
     </button>
     <br />
     <iframe :src="url" allow="camera *;" class="frame"></iframe>
@@ -18,7 +17,7 @@ export default {
   name: "Butterflyhunt",
   data() {
     return {
-      url: this.URLMaker(),
+      url: this.URLMaker()
     };
   },
   methods: {
@@ -29,10 +28,10 @@ export default {
         "&UID=" +
         window.localStorage.uid +
         "&PID=" +
-        window.localStorage.parentDoc;
+        window.localStorage.uid;
       return newUrl;
-    },
-  },
+    }
+  }
 };
 </script>
 
