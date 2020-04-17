@@ -113,18 +113,16 @@ export default {
     },
     clickHandler() {
       const auth = firebase.auth();
-
-      auth.createUserWithEmailAndPassword(
-        this.input.email,
-        this.input.password
-      );
-
-      firestore()
-        .collection("parents")
-        .add({ username: this.input.username })
-        .then(function(docRef) {
-          console.log("Document written with ID: ", docRef.id);
-          window.localStorage.setItem("parentDoc", docRef.id);
+      window.localStorage.setItem("username", this.input.username);
+      const parentDoc = { username: window.localStorage.username };
+      auth
+        .createUserWithEmailAndPassword(this.input.email, this.input.password)
+        .then(cred => {
+          console.log(cred.user.uid, "tihs is the cred");
+          firestore()
+            .collection("parents")
+            .doc(cred.user.uid)
+            .set(parentDoc);
         });
 
       if (
