@@ -13,7 +13,7 @@ export default {
 @font-face {
   font-family: "Pacifico";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 900;
   src: url("../fonts/pacifico-v16-latin-regular.eot"); /* IE9 Compat Modes */
   src: local("Pacifico Regular"), local("Pacifico-Regular"),
     url("../fonts/pacifico-v16-latin-regular.eot?#iefix")
@@ -29,10 +29,9 @@ export default {
 }
 
 .header {
-  color: #2a938f;
+  color: white;
   font-family: Pacifico;
-  font-size: 5em;
-  font-weight: bolder;
+  font-size: 4.2em;
   padding: 0em;
   margin-top: 0;
   margin-bottom: 0;

@@ -7,13 +7,7 @@
 
       <form @submit="addNewParentUser">
         <label class="email-signup">Email</label>
-        <input
-          type="text"
-          name="email"
-          v-model="input.email"
-          placeholder="Enter Email"
-          required
-        />
+        <input type="text" name="email" v-model="input.email" placeholder="Enter Email" required />
 
         <label class="username-signup">Username</label>
         <input
@@ -46,25 +40,17 @@
         <p
           v-if="input.password !== input.confirmPassword"
           class="invalid-password"
-        >
-          Passwords do not match!
-        </p>
+        >Passwords do not match!</p>
 
         <p
           class="signedUp-msg"
           v-if="input.signedUp && input.password === input.confirmPassword"
-        >
-          You have created an account!
-        </p>
-        <button class="signUpBtn" type="submit" v-on:click="clickHandler">
-          Sign Up
-        </button>
+        >You have created an account!</p>
+        <button class="signUpBtn" type="submit" v-on:click="clickHandler">Sign Up</button>
       </form>
 
       <button class="backToLogIn">
-        <router-link :to="{ name: 'login' }" class="backToLogIn"
-          >Back to Log In</router-link
-        >
+        <router-link :to="{ name: 'login' }" class="backToLogIn">Back to Log In</router-link>
       </button>
     </div>
   </div>
@@ -86,13 +72,13 @@ export default {
         username: "",
         password: "",
         confirmPassword: "",
-        signedUp: false,
-      },
+        signedUp: false
+      }
     };
   },
   components: {
     IntroMessage,
-    Header,
+    Header
   },
   methods: {
     addNewParentUser(event) {
@@ -100,12 +86,13 @@ export default {
       const newParentUser = {
         email: this.input.email,
         username: this.input.username,
-        password: this.input.password,
+        password: this.input.password
       };
 
       if (this.input.password === this.input.confirmPassword) {
         this.$emit("add-new-parent", newParentUser);
       }
+
       (this.input.email = ""),
         (this.input.username = ""),
         (this.input.password = ""),
@@ -118,7 +105,6 @@ export default {
       auth
         .createUserWithEmailAndPassword(this.input.email, this.input.password)
         .then(cred => {
-          console.log(cred.user.uid, "tihs is the cred");
           firestore()
             .collection("parents")
             .doc(cred.user.uid)
@@ -134,15 +120,52 @@ export default {
       } else {
         this.input.signedUp = false;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style>
-@media (min-width: 500px) {
+#new-account-login {
+  width: 400px;
+  border: 1px solid #cccccc;
+  margin: auto;
+  margin-top: 10px;
+  padding: 20px;
+  color: white;
+  border-radius: 30px;
+  background-color: white;
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
   #new-account-login {
-    width: 400px;
+    width: 330px;
+    border: 1px solid #cccccc;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+    color: white;
+    border-radius: 30px;
+    background-color: white;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  #new-account-login {
+    width: 325px;
+    border: 1px solid #cccccc;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+    color: white;
+    border-radius: 30px;
+    background-color: white;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  #new-account-login {
+    width: 320px;
     border: 1px solid #cccccc;
     margin: auto;
     margin-top: 10px;
@@ -155,7 +178,9 @@ export default {
 
 .signUp-title {
   color: grey;
-  font-size: 35px;
+  font-size: 2em;
+  margin-top: 0;
+  font-family: Pacifico;
 }
 
 .valid-password {
@@ -175,7 +200,7 @@ export default {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 50%;
+  width: 60%;
   margin-top: 5px;
   margin-bottom: 20px;
 }
@@ -192,7 +217,41 @@ export default {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 50%;
+  width: 60%;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  .backToLogIn {
+    text-decoration: none;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 65%;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .backToLogIn {
+    text-decoration: none;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 70%;
+  }
 }
 
 input[type="text"],

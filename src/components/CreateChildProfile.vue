@@ -18,7 +18,7 @@
           :src="animalType.imageUrl"
           :key="animalType.id"
           class="avatar-img"
-          @click="childForm.avatarUrl = animalType.imageUrl"
+          @click="childForm.avatarUrl = animalType.imageUrl "
         />
         <br />
         {{ animalType.animal }}
@@ -26,15 +26,7 @@
 
       <p v-if="childForm.signedUp" class="new-account-msg">You have created an account!</p>
 
-      <button
-        class="sign-up-btn"
-        type="submit"
-        v-on:click="
-          childForm.username.length !== 0 && childForm.avatarUrl.length !== 0
-            ? (childForm.signedUp = !childForm.signedUp)
-            : (childForm.signedUp = false)
-        "
-      >Sign Up</button>
+      <button class="sign-up-btn" type="submit" v-on:click="showForm()">Sign Up</button>
     </form>
   </div>
 </template>
@@ -89,16 +81,35 @@ export default {
       };
 
       this.$emit("add-new-child", newChildUser);
+      this.childForm.username = "";
       this.childForm.avatarUrl = "";
     }
+  },
+  showForm() {
+    this.childForm.username.length !== 0 &&
+    this.childForm.avatarUrl.length !== 0
+      ? (this.childForm.signedUp = !this.childForm.signedUp)
+      : (this.childForm.signedUp = false);
   }
 };
 </script>
 
 <style scoped>
-@media (min-width: 500px) {
+#new-child-account-login {
+  width: 400px;
+  border: 1px solid #cccccc;
+  margin: auto;
+  margin-top: 10px;
+  padding: 20px;
+  color: white;
+  border-radius: 30px;
+  background-color: white;
+  margin-bottom: 30px;
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
   #new-child-account-login {
-    width: 400px;
+    width: 300px;
     border: 1px solid #cccccc;
     margin: auto;
     margin-top: 10px;
@@ -110,6 +121,19 @@ export default {
   }
 }
 
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  #new-child-account-login {
+    width: 300px;
+    border: 1px solid #cccccc;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+    color: white;
+    border-radius: 30px;
+    background-color: white;
+    margin-bottom: 30px;
+  }
+}
 .back-link {
   text-decoration: none;
   color: white;
@@ -174,5 +198,9 @@ export default {
   cursor: pointer;
   width: 250px;
   margin-bottom: 20px;
+}
+
+.chosen-animal {
+  color: black;
 }
 </style>

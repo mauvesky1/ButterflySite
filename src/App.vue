@@ -12,8 +12,7 @@
         to="/login"
         v-on:click.native="logout()"
         replace
-        >Logout</router-link
-      >
+      >Logout</router-link>
     </div>
   </div>
 </template>
@@ -29,7 +28,7 @@ var firebaseConfig = {
   storageBucket: "backend-679e8.appspot.com",
   messagingSenderId: "363772688197",
   appId: "1:363772688197:web:1b1ae070f6afdaf41eb02c",
-  measurementId: "G-6FSQXQCNBN",
+  measurementId: "G-6FSQXQCNBN"
 };
 firebase.initializeApp(firebaseConfig);
 
@@ -41,13 +40,13 @@ export default {
       mockAccount: [
         {
           username: "parent1",
-          password: "password",
+          password: "password"
         },
         {
           username: "parent2",
-          password: "northcoders",
-        },
-      ],
+          password: "northcoders"
+        }
+      ]
     };
   },
   methods: {
@@ -59,8 +58,8 @@ export default {
     },
     addNewParent(newParentUser) {
       this.mockAccount = [...this.mockAccount, newParentUser];
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -92,8 +91,10 @@ body {
   cursor: pointer;
   width: 100%;
 }
+
 .logout-btn {
   margin-top: 50px;
+  /* margin: 0; */
 }
 @media (max-width: 470px) {
   .game-title {

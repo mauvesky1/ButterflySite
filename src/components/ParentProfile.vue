@@ -35,7 +35,6 @@ export default {
     };
   },
   created() {
-    console.log(window.localStorage.uid);
     firestore()
       .collection(`parents/${window.localStorage.uid}/userProfiles`)
       .get()
@@ -68,6 +67,12 @@ export default {
   font-size: 20px;
   text-decoration: none;
   margin-bottom: 20px;
+  background-color: white;
+  width: 180px;
+  border-radius: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 1px 7px 6px black;
 }
 
 .child-link {

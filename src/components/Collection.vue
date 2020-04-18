@@ -6,19 +6,27 @@
         v-if="$routerHistory.hasPrevious()"
         :to="{ path: $routerHistory.previous().path }"
         class="back-link"
-      >Back to Parent Profile</router-link>
+      >Back to Profile</router-link>
     </button>
-    <h1>Butterfly Collection:</h1>
+
+    <h1 class="butterfly-collection-title">Butterfly Collection:</h1>
     <ul>
-      <li v-for="butterfly in collection" :key="butterfly.number" class="butterfly-name">
-        <h1>{{ butterfly.name }}</h1>
+      <li v-for="butterfly in collection" :key="butterfly.number">
+        <h1 class="butterfly-name">{{ butterfly.name }}</h1>
         <img
           v-bind:src="butterfly.url"
           class="bfly"
           v-bind:class="{ uncaught: butterfly.unCaught }"
         />
-        <h2>Type: {{ butterfly.type }}</h2>
-        <p v-bind:class="{ hidden: butterfly.unCaught }">{{ butterfly.details }}</p>
+        <h2 class="butterfly-type">
+          Type:
+          <br />
+          {{ butterfly.type }}
+        </h2>
+        <p
+          v-bind:class="{ hidden: butterfly.unCaught }"
+          class="butterfly-details"
+        >{{ butterfly.details }}</p>
       </li>
     </ul>
   </div>
@@ -190,6 +198,27 @@ export default {
 </script>
 
 <style>
+.butterfly-collection-title {
+  font-family: Pacifico;
+  color: white;
+  font-size: 2.5em;
+}
+
+.back-btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.butterfly-name {
+  font-family: Pacifico;
+  color: white;
+}
+
+.butterfly-type {
+  font-family: Pacifico;
+  color: black;
+}
+
 .bfly {
   width: 100%;
 }
@@ -200,7 +229,20 @@ export default {
 .hidden {
   display: none;
 }
+
+.butterfly-details {
+  width: 300px;
+  border: 1px solid #cccccc;
+  background: rgba(204, 204, 204, 0.2);
+  border-radius: 30px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  display: grid;
+}
+
 ul {
   list-style: none;
+  margin-right: 40px;
 }
 </style>
