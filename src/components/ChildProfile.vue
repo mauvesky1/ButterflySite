@@ -6,17 +6,17 @@
         v-if="$routerHistory.hasPrevious()"
         :to="{ path: $routerHistory.previous().path }"
         class="back-link"
-        >Back to Parent Profile</router-link
-      >
+      >Back to Parent Profile</router-link>
     </button>
 
-    <h1>Welcome {{ $route.params.username }}</h1>
+    <h1 class="welcome-msg">
+      Welcome
+      {{ $route.params.username }}
+    </h1>
     <div id="nav">
-      <router-link :to="{ name: 'Collection' }"
-        >Butterfly Collection</router-link
-      >
+      <router-link :to="{ name: 'Collection' }" class="butterfly-collection">Butterfly Collection</router-link>
       <br />
-      <router-link :to="{ name: 'Butterflyhunt' }">Go Hunting</router-link>
+      <router-link :to="{ name: 'Butterflyhunt' }" class="go-hunting">Go Hunting</router-link>
     </div>
   </div>
 </template>
@@ -25,20 +25,45 @@
 import Header from "./Header.vue";
 export default {
   name: "ChildProfile",
-  data() {
-    return {
-      //collection("parent/parentdoc/children").then(children =>{
-      //   children.forEach(child =>{
-      //     if(child.username ==)
-      //   })
-      // })
-    };
-  },
-  components: { Header },
+  components: { Header }
 };
 </script>
 
 <style scoped>
+.welcome-msg {
+  font-family: Pacifico;
+  color: white;
+  font-size: 50px;
+}
+
+.butterfly-collection {
+  width: 150px;
+  border: 1px solid #cccccc;
+  background: rgba(204, 204, 204, 0.2);
+  border-radius: 30px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  display: grid;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.go-hunting {
+  width: 150px;
+  border: 1px solid #cccccc;
+  background: rgba(204, 204, 204, 0.2);
+  border-radius: 30px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  display: grid;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
 .back-link {
   text-decoration: none;
   color: white;
@@ -53,6 +78,7 @@ export default {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  margin-bottom: 40px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 </style>

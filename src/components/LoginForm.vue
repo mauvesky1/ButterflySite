@@ -160,6 +160,7 @@ export default {
     background-color: #ffffff;
     border-radius: 30px;
     margin: auto;
+    margin-top: 10px;
     padding: 20px;
     text-align: left;
     display: grid;
@@ -173,11 +174,13 @@ export default {
     background-color: #ffffff;
     border-radius: 30px;
     margin: auto;
+    margin-top: 15px;
     padding: 20px;
     text-align: left;
     display: grid;
   }
 }
+
 .signIn-title {
   color: grey;
   font-size: 2em;
@@ -235,7 +238,6 @@ export default {
 
 .login-form {
   text-align: center;
-  margin-top: 80px;
   margin: 0;
 }
 </style>

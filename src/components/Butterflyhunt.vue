@@ -23,7 +23,7 @@ export default {
   methods: {
     URLMaker() {
       const newUrl =
-        "https://norbsardemo.netlify.com/ar.html?CID=" +
+        "https://butterflyhunt.netlify.app/ar.html?CID=" +
         this.$route.params.username +
         "&UID=" +
         window.localStorage.uid +
