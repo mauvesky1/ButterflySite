@@ -8,8 +8,12 @@
         class="back-link"
       >Back to Profile</router-link>
     </button>
-
-    <h1 class="butterfly-collection-title">Butterfly Collection:</h1>
+    <div id="toptext">
+      <h1 class="butterfly-collection-title">Butterfly Collection:</h1>
+      <p>Welcome to your collection!</p>
+      <p>Here you can scroll down to admire the butterflies you've caught, and see how many are still out there!</p>
+      <p>Remember, when you catch a butterfly, you learn it's type, and unlock details of it's habitat and personality!</p>
+    </div>
     <ul>
       <li v-for="butterfly in collection" :key="butterfly.number">
         <h1 class="butterfly-name">{{ butterfly.name }}</h1>
@@ -20,8 +24,7 @@
         />
         <h2 class="butterfly-type">
           Type:
-          <br />
-          {{ butterfly.type }}
+          <p v-bind:class="{ hidden: butterfly.unCaught }">{{ butterfly.type }}</p>
         </h2>
         <p
           v-bind:class="{ hidden: butterfly.unCaught }"
@@ -200,7 +203,7 @@ export default {
 <style>
 .butterfly-collection-title {
   font-family: Pacifico;
-  color: white;
+  color: #d95c26;
   font-size: 2.5em;
 }
 
@@ -217,6 +220,7 @@ export default {
 .butterfly-type {
   font-family: Pacifico;
   color: black;
+  margin: 0;
 }
 
 .bfly {
@@ -224,10 +228,6 @@ export default {
 }
 .uncaught {
   filter: brightness(0.1);
-}
-
-.hidden {
-  display: none;
 }
 
 .butterfly-details {
@@ -238,16 +238,51 @@ export default {
   margin: auto;
   padding: 20px;
   text-align: center;
-  display: grid;
 }
-
-ul {
-  list-style: none;
-  margin-right: 40px;
+.hidden {
+  display: none;
+}
+@media screen and (min-width: 601px) {
+  #toptext {
+    width: 500pt;
+    border: 4px solid #acd998;
+    background-color: #e6e6fa;
+    border-radius: 30px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    display: grid;
+  }
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    column-count: 3;
+    column-gap: 1em;
+    row-gap: 1em;
+    padding: 1em;
+  }
 }
 
 @media screen and (max-width: 600px) {
-}
-@media screen and (min-width: 601px) {
+  #toptext {
+    width: 85%;
+    border: 4px solid #acd998;
+    background-color: #e6e6fa;
+    border-radius: 30px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    display: grid;
+  }
+  ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    list-style: none;
+    column-count: 1;
+    column-gap: 1em;
+    row-gap: 1em;
+    padding: 1em;
+  }
 }
 </style>

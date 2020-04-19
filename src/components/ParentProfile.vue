@@ -4,16 +4,20 @@
     <div id="profile">
       <h1 class="welcome-msg">Welcome {{ $route.params.parentusername }}</h1>
 
-      <p v-for="child in childrenUsers" :key="child.username" class="child-username">
-        <router-link
-          :to="{ name: 'ChildProfile', params: { username: child.username, url: child.avatarUrl } }"
-          class="child-link"
-        >
-          <img :src="child.avatarUrl" class="avatar-url" />
-          <br />
-          {{ child.username }}
-        </router-link>
-      </p>
+      <p>Welcome to your Butterfly House Account!</p>
+      <p>Here you can add as many player profiles as you like, or select an existing profile, to catch butterflies to your own collection!</p>
+      <ul>
+        <li v-for="child in childrenUsers" :key="child.username" class="child-username">
+          <router-link
+            :to="{ name: 'ChildProfile', params: { username: child.username, url: child.avatarUrl } }"
+            class="child-link"
+          >
+            <img :src="child.avatarUrl" class="avatar-url" />
+            <br />
+            {{ child.username }}
+          </router-link>
+        </li>
+      </ul>
 
       <CreateChildProfile v-on:add-new-child="addNewChild" />
     </div>
