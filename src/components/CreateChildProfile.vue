@@ -3,14 +3,19 @@
     <button
       class="create-child-link"
       v-on:click="childForm.showForm = !childForm.showForm"
-    >Create Child Account</button>
+    >New Player</button>
 
     <form id="new-child-account-login" @submit="addNewChildUser" v-if="childForm.showForm">
       <label class="child-username">Username:</label>
       <input type="text" v-model="childForm.username" placeholder="Enter Username" required />
 
       <label class="avatar-title">Choose an avatar:</label>
-      <input type="text" v-model="childForm.avatarUrl" placeholder="Enter avatar animal" required />
+      <input
+        type="text"
+        v-model="childForm.avatarUrl"
+        placeholder="Select from below, or link your own image!"
+        required
+      />
 
       <p v-for="animalType in avatarImages" :key="animalType.id" class="animal-type">
         <br />
@@ -109,10 +114,6 @@ export default {
     border: 1px solid #cccccc;
     margin: auto;
     margin-top: 10px;
-    padding: 20px;
-    color: white;
-    border-radius: 30px;
-    background-color: white;
     margin-bottom: 30px;
   }
 }
@@ -120,13 +121,8 @@ export default {
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   #new-child-account-login {
     width: 300px;
-    border: 1px solid #cccccc;
     margin: auto;
     margin-top: 10px;
-    padding: 20px;
-    color: white;
-    border-radius: 30px;
-    background-color: white;
     margin-bottom: 30px;
   }
 }
