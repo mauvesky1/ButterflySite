@@ -95,19 +95,15 @@ export default {
 </script>
 
 <style scoped>
-#new-child-account-login {
-  width: 400px;
-  border: 1px solid #cccccc;
-  margin: auto;
-  margin-top: 10px;
-  padding: 20px;
-  color: white;
-  border-radius: 30px;
-  background-color: white;
-  margin-bottom: 30px;
-}
-
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+#new-child-account-login
+  @media
+  only
+  screen
+  and
+  (min-device-width: 414px)
+  and
+  (max-device-width: 736px)
+  and(-webkit-min-device-pixel-ratio: 3) {
   #new-child-account-login {
     width: 300px;
     border: 1px solid #cccccc;
@@ -150,10 +146,12 @@ export default {
 }
 
 .avatar-img {
-  width: 95px;
   cursor: pointer;
   margin-right: 20px;
   margin-left: 20px;
+  height: 6em;
+  width: 6em;
+  border-radius: 50%;
 }
 
 .animal-type {
@@ -166,7 +164,7 @@ export default {
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
-  background-color: black;
+  background-color: #d95c26;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -190,7 +188,7 @@ export default {
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
-  background-color: black;
+  background-color: #d95c26;
   color: white;
   padding: 14px 20px;
   border: none;

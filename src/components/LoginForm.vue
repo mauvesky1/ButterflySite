@@ -103,21 +103,36 @@ export default {
       url("../fonts/pacifico-v16-latin-regular.svg#Pacifico") format("svg"); /* Legacy iOS */
 }
 
-#login {
-  width: 400px;
-  border: 1px solid #cccccc;
-  background-color: #ffffff;
-  border-radius: 30px;
-  margin: auto;
-  padding: 20px;
-  text-align: left;
-  display: grid;
+@media screen and (min-width: 600px) {
+  #login {
+    width: 500pt;
+    border: 4px solid #acd998;
+    background-color: #e6e6fa;
+    border-radius: 30px;
+    margin: auto;
+    padding: 20px;
+    text-align: left;
+    display: grid;
+  }
 }
-
+@media screen and (max-width: 600px) {
+  #login {
+    width: 85%;
+    border: 4px solid #acd998;
+    background-color: #e6e6fa;
+    border-radius: 30px;
+    margin: auto;
+    padding: 20px;
+    text-align: left;
+    display: grid;
+  }
+}
+/* 
 @media only screen and (min-device-width: 360px) and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 3) {
   #login {
     width: 300px;
-    border: 1px solid #cccccc;
+
+    border: 4px solid #d95c26;
     background-color: #ffffff;
     border-radius: 30px;
     margin: auto;
@@ -130,7 +145,8 @@ export default {
 @media only screen and (min-device-width: 411px) and (max-device-width: 731px) {
   #login {
     width: 320px;
-    border: 1px solid #cccccc;
+
+    border: 4px solid #d95c26;
     background-color: #ffffff;
     border-radius: 30px;
     margin: auto;
@@ -143,7 +159,8 @@ export default {
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
   #login {
     width: 250px;
-    border: 1px solid #cccccc;
+
+    border: 4px solid #d95c26;
     background-color: #ffffff;
     border-radius: 30px;
     margin: auto;
@@ -156,7 +173,8 @@ export default {
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   #login {
     width: 300px;
-    border: 1px solid #cccccc;
+
+    border: 4px solid #d95c26;
     background-color: #ffffff;
     border-radius: 30px;
     margin: auto;
@@ -170,7 +188,8 @@ export default {
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
   #login {
     width: 330px;
-    border: 1px solid #cccccc;
+
+    border: 4px solid #d95c26;
     background-color: #ffffff;
     border-radius: 30px;
     margin: auto;
@@ -179,10 +198,10 @@ export default {
     text-align: left;
     display: grid;
   }
-}
+} */
 
 .signIn-title {
-  color: grey;
+  color: #d95c26;
   font-size: 2em;
   margin-top: 0;
   font-family: Pacifico;
@@ -191,7 +210,7 @@ export default {
 .signIn-btn {
   text-decoration: none;
   font-size: 20px;
-  background-color: black;
+  background-color: #d95c26;
   color: white;
   padding: 10px;
   margin-top: 20px;
@@ -199,19 +218,19 @@ export default {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 60%;
+  width: 75%;
 }
 
 .create-account-btn {
   text-decoration: none;
   font-size: 18px;
-  background-color: black;
+  background-color: #d95c26;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 60%;
+  width: 75%;
 }
 
 .create-account-link {
