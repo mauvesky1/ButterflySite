@@ -99,12 +99,16 @@ export default {
         (this.input.confirmPassword = "");
     },
     clickHandler() {
+      let theUsername = this.input.username;
       const auth = firebase.auth();
       window.localStorage.setItem("username", this.input.username);
       const parentDoc = { username: window.localStorage.username };
       auth
         .createUserWithEmailAndPassword(this.input.email, this.input.password)
         .then(cred => {
+          const usernameObj = { displayName: theUsername };
+          cred.user.updateProfile(usernameObj);
+
           firestore()
             .collection("parents")
             .doc(cred.user.uid)
