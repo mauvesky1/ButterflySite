@@ -14,7 +14,7 @@
       <p>Here you can scroll down to admire the butterflies you've caught, and see how many are still out there!</p>
       <p>Remember, when you catch a butterfly, you learn it's type, and unlock details of it's habitat and personality!</p>
     </div>
-    <ul>
+    <ul class="gridlist">
       <li v-for="butterfly in collection" :key="butterfly.number">
         <h1 class="butterfly-name">{{ butterfly.name }}</h1>
         <img
@@ -253,7 +253,7 @@ export default {
     text-align: center;
     display: grid;
   }
-  ul {
+  .gridlist {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     list-style: none;
@@ -275,7 +275,7 @@ export default {
     text-align: center;
     display: grid;
   }
-  ul {
+  .gridlist {
     display: grid;
     grid-template-columns: 1fr;
     list-style: none;

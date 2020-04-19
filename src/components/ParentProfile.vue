@@ -6,7 +6,7 @@
 
       <p>Welcome to your Butterfly House Account!</p>
       <p>Here you can add as many player profiles as you like, or select an existing profile, to catch butterflies to your own collection!</p>
-      <ul>
+      <ul class="gridlist">
         <li v-for="child in childrenUsers" :key="child.username" class="child-username">
           <router-link
             :to="{ name: 'ChildProfile', params: { username: child.username, url: child.avatarUrl } }"
