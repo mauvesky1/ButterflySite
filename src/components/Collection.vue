@@ -245,4 +245,9 @@ ul {
   list-style: none;
   margin-right: 40px;
 }
+
+@media screen and (max-width: 600px) {
+}
+@media screen and (min-width: 601px) {
+}
 </style>

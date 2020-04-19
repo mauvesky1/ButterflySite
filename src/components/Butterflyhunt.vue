@@ -8,7 +8,7 @@
       >Back to Child Profile</router-link>
     </button>
     <br />
-    <iframe :src="url" allow="camera *;" class="frame"></iframe>
+    <iframe :src="url" allow="camera *;" class="frame" width="700" height="800"></iframe>
   </div>
 </template>
 
@@ -42,13 +42,24 @@ export default {
 }
 
 .back-btn {
-  font-weight: bold;
-  font-size: 1em;
-  background-color: black;
-  padding: 1em 1.2em;
+  font-size: 18px;
+  border-radius: 30px;
+
+  border: 2px solid #cccccc;
+  background: rgba(204, 204, 204, 0.2);
+  padding: 14px 20px;
   border: none;
-  border-radius: 40em;
+  border-radius: 40px;
   cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  iframe {
+    width: 650;
+    height: 800;
+  }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {

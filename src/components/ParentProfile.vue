@@ -1,20 +1,22 @@
 <template>
   <div>
     <Header />
-    <h1 class="welcome-msg">Welcome {{ $route.params.parentusername }}</h1>
+    <div id="profile">
+      <h1 class="welcome-msg">Welcome {{ $route.params.parentusername }}</h1>
 
-    <p v-for="child in childrenUsers" :key="child.username" class="child-username">
-      <router-link
-        :to="{ name: 'ChildProfile', params: { username: child.username } }"
-        class="child-link"
-      >
-        <img :src="child.avatarUrl" class="avatar-url" />
-        <br />
-        {{ child.username }}
-      </router-link>
-    </p>
+      <p v-for="child in childrenUsers" :key="child.username" class="child-username">
+        <router-link
+          :to="{ name: 'ChildProfile', params: { username: child.username, url: child.avatarUrl } }"
+          class="child-link"
+        >
+          <img :src="child.avatarUrl" class="avatar-url" />
+          <br />
+          {{ child.username }}
+        </router-link>
+      </p>
 
-    <CreateChildProfile v-on:add-new-child="addNewChild" />
+      <CreateChildProfile v-on:add-new-child="addNewChild" />
+    </div>
   </div>
 </template>
 
@@ -56,23 +58,43 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 600px) {
+  #profile {
+    width: 85%;
+    border: 4px solid #acd998;
+    background-color: #e6e6fa;
+    border-radius: 30px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    display: grid;
+  }
+}
+@media screen and (min-width: 601px) {
+  #profile {
+    width: 500pt;
+    border: 4px solid #acd998;
+    background-color: #e6e6fa;
+    border-radius: 30px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    display: grid;
+  }
+}
+
 .welcome-msg {
-  color: black;
+  font-family: Pacifico;
+  color: #d95c26;
   text-align: center;
+  font-size: 1.9em;
+  width: 100%;
 }
 
 .child-username {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: black;
+  font-weight: bold;
   font-size: 20px;
-  text-decoration: none;
-  margin-bottom: 20px;
-  background-color: white;
-  width: 180px;
-  border-radius: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 1px 7px 6px black;
 }
 
 .child-link {
@@ -85,6 +107,12 @@ export default {
 }
 
 .avatar-url {
-  width: 100px;
+  cursor: pointer;
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 6em;
+  width: 6em;
+  border-radius: 50%;
+  box-shadow: 1px 7px 6px black;
 }
 </style>

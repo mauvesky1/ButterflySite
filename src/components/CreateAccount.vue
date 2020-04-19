@@ -128,15 +128,41 @@ export default {
 <style>
 #new-account-login {
   width: 400px;
-  border: 1px solid #cccccc;
+
+  border: 4px solid #acd998;
+  background-color: #e6e6fa;
   margin: auto;
   margin-top: 10px;
   padding: 20px;
-  color: white;
   border-radius: 30px;
-  background-color: white;
 }
-
+@media screen and (min-width: 600px) {
+  #new-account-login {
+    width: 500pt;
+    border: 4px solid #acd998;
+    background-color: #e6e6fa;
+    padding: 20px;
+    border-radius: 30px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #new-account-login {
+    width: 85%;
+    border: 4px solid #acd998;
+    background-color: #e6e6fa;
+    padding: 20px;
+    border-radius: 30px;
+  }
+  #login {
+    width: 85%;
+    border: 4px solid #acd998;
+    background-color: #e6e6fa;
+    border-radius: 30px;
+    margin: auto;
+    padding: 20px;
+  }
+}
+/* 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
   #new-account-login {
     width: 330px;
@@ -174,10 +200,11 @@ export default {
     border-radius: 30px;
     background-color: white;
   }
-}
+} */
 
 .signUp-title {
-  color: grey;
+  color: #d95c26;
+
   font-size: 2em;
   margin-top: 0;
   font-family: Pacifico;
@@ -194,32 +221,33 @@ export default {
 .signUpBtn {
   text-decoration: none;
   font-size: 18px;
-  background-color: black;
+
+  background-color: #d95c26;
   color: white;
   padding: 14px 20px;
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 60%;
+  width: 75%;
   margin-top: 5px;
   margin-bottom: 20px;
 }
 
 .backToLogIn {
   text-decoration: none;
-  color: black;
   text-decoration: none;
   font-size: 18px;
-  background-color: black;
+
+  background-color: #d95c26;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 60%;
+  width: 75%;
 }
-
+/* 
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
   .backToLogIn {
     text-decoration: none;
@@ -252,7 +280,7 @@ export default {
     cursor: pointer;
     width: 70%;
   }
-}
+} */
 
 input[type="text"],
 input[type="password"] {
