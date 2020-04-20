@@ -1,9 +1,11 @@
 <template>
   <div>
     <Header />
-    <BackButton />
-    <HowToPlayButton />
-    <LogOut />
+    <nav id="navbar">
+      <BackButton class="navbutt" />
+      <HowToPlayButton class="navbutt" />
+      <LogOut class="navbutt" />
+    </nav>
     <div id="profile">
       <h1 class="welcome-msg" v-html="username"></h1>
 
@@ -89,6 +91,20 @@ export default {
 
 <style scoped>
 @media screen and (max-width: 600px) {
+  #navbar {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    column-count: 3;
+    column-gap: 1em;
+    row-gap: 1em;
+    padding: 1em;
+  }
+  .navbutt {
+    width: 100%;
+    height: auto;
+  }
   #profile {
     width: 85%;
     border: 4px solid #acd998;
@@ -103,6 +119,22 @@ export default {
   }
 }
 @media screen and (min-width: 601px) {
+  #navbar {
+    margin: auto;
+    display: grid;
+    width: 500pt;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    column-count: 3;
+    column-gap: 1em;
+    row-gap: 1em;
+    padding: 1em;
+    justify-items: center;
+  }
+  .navbutt {
+    width: 100%;
+    height: auto;
+  }
   #profile {
     width: 500pt;
     border: 4px solid #acd998;

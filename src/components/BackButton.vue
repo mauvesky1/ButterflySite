@@ -1,11 +1,7 @@
 <template>
-  <button class="top-btn">
-    <router-link
-      v-if="$routerHistory.hasPrevious()"
-      :to="{ path: $routerHistory.previous().path }"
-      class="back-link"
-    >Go Back</router-link>
-  </button>
+  <router-link v-if="$routerHistory.hasPrevious()" :to="{ path: $routerHistory.previous().path }">
+    <button class="top-btn">Go Back</button>
+  </router-link>
 </template>
 
 <script>
@@ -15,14 +11,12 @@ export default {
 </script>
 
 <style>
-.top-link {
-  text-decoration: none;
-  color: white;
-}
-
 .top-btn {
   font-size: 18px;
   border-radius: 30px;
+
+  text-decoration: none;
+  color: white;
 
   border: 2px solid #cccccc;
   background: rgba(204, 204, 204, 0.2);

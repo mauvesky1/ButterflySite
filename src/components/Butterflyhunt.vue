@@ -3,14 +3,12 @@
     <Header />
     <BackButton />
     <HowToPlayButton />
-    <LogOut />
     <br />
     <iframe :src="url" allow="camera *;" class="frame" width="700" height="800"></iframe>
   </div>
 </template>
 
 <script>
-import LogOut from "./Logout";
 import BackButton from "./BackButton";
 import HowToPlayButton from "./HowToPlayButton";
 
@@ -21,7 +19,7 @@ export default {
       url: this.URLMaker()
     };
   },
-  components: { LogOut, BackButton, HowToPlayButton },
+  components: { BackButton, HowToPlayButton },
   methods: {
     URLMaker() {
       const newUrl =

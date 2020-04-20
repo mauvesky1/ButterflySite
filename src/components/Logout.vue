@@ -1,7 +1,7 @@
 <template>
-  <button class="top-btn">
-    <router-link to="/login" v-on:click.native="this.$root.logout()" class="top-link">Log Out</router-link>
-  </button>
+  <router-link to="/login" v-on:click.native="this.$root.logout()">
+    <button class="top-btn">Log Out</button>
+  </router-link>
 </template>
 
 <script>
@@ -28,5 +28,9 @@ export default {
   cursor: pointer;
   margin-top: 30px;
   margin-bottom: 10px;
+}
+
+.top-btn: hover {
+  opacity: 10%;
 }
 </style>

@@ -44,7 +44,12 @@
             will scan in order to bring the butterflies to life in your home!
           </p>
 
-          <button class="downloadbutton">Download Markers!</button>
+          <a
+            href="https://github.com/conwayhub/markertests/raw/master/Markersheet.pdf"
+            target="_blank"
+          >
+            <button class="downloadbutton">Download Markers!</button>
+          </a>
           <p>
             You can download a pdf of our markers from here! If you have a
             printer, the next bit is easy! Print out the markers, and cut them
@@ -218,7 +223,6 @@ export default {
     margin: 0;
 
     margin-left: -40px;
-
   }
 
   #instruction-list {
@@ -259,6 +263,9 @@ export default {
     cursor: pointer;
     width: 75%;
   }
+}
+a {
+  text-decoration: none;
 }
 img {
   width: 100%;
