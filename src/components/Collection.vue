@@ -8,6 +8,10 @@
         class="back-link"
       >Back to Profile</router-link>
     </button>
+    <button class="top-btn">
+      <router-link :to="{ name: 'instructions' }" class="top-link">How to Play</router-link>
+    </button>
+    <LogOut />
     <div id="toptext">
       <h1 class="butterfly-collection-title">Butterfly Collection:</h1>
       <p>Welcome to your collection!</p>
@@ -38,6 +42,7 @@
 <script>
 import Header from "./Header.vue";
 import { firestore } from "firebase";
+import LogOut from "./Logout";
 
 export default {
   name: "Collection",
@@ -198,7 +203,7 @@ export default {
       ]
     };
   },
-  components: { Header },
+  components: { Header, LogOut },
   created() {
     firestore()
       .collection(`parents/${window.localStorage.uid}/userProfiles`)

@@ -8,6 +8,10 @@
         class="back-link"
       >Back to Parent Profile</router-link>
     </button>
+    <button class="top-btn">
+      <router-link :to="{ name: 'instructions' }" class="top-link">How to Play</router-link>
+    </button>
+    <LogOut />
     <div id="child-profile">
       <img :src="`${avatarUrl}`" class="avatar" />
       <h1 class="welcome-msg">
@@ -29,10 +33,11 @@
 <script>
 import Header from "./Header.vue";
 import { firestore } from "firebase";
+import LogOut from "./Logout";
 
 export default {
   name: "ChildProfile",
-  components: { Header },
+  components: { Header, LogOut },
   data() {
     return {
       username: "",

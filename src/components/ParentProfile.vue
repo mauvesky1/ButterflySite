@@ -1,6 +1,10 @@
 <template>
   <div>
     <Header />
+    <button class="top-btn">
+      <router-link :to="{ name: 'instructions' }" class="top-link">How to Play</router-link>
+    </button>
+    <LogOut />
     <div id="profile">
       <h1 class="welcome-msg" v-html="username"></h1>
 
@@ -27,6 +31,7 @@
 <script>
 import Header from "./Header.vue";
 import CreateChildProfile from "./CreateChildProfile.vue";
+import LogOut from "./Logout";
 import * as firebase from "firebase";
 import { firestore } from "firebase";
 import "@firebase/auth";
@@ -35,12 +40,13 @@ export default {
   name: "ParentProfile",
   components: {
     Header,
-    CreateChildProfile
+    CreateChildProfile,
+    LogOut
   },
   data() {
     return {
       childrenUsers: [],
-      username: null
+      username: ""
     };
   },
   created() {
@@ -127,5 +133,24 @@ export default {
   width: 6em;
   border-radius: 50%;
   box-shadow: 1px 7px 6px black;
+}
+
+.top-link {
+  text-decoration: none;
+  color: white;
+}
+
+.top-btn {
+  font-size: 18px;
+  border-radius: 30px;
+
+  border: 2px solid #cccccc;
+  background: rgba(204, 204, 204, 0.2);
+  padding: 14px 20px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 </style>
