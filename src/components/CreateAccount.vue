@@ -7,7 +7,13 @@
 
       <form @submit="addNewParentUser">
         <label class="email-signup">Email</label>
-        <input type="text" name="email" v-model="input.email" placeholder="Enter Email" required />
+        <input
+          type="text"
+          name="email"
+          v-model="input.email"
+          placeholder="Enter Email"
+          required
+        />
 
         <label class="username-signup">Username</label>
         <input
@@ -41,20 +47,30 @@
         <p
           v-if="input.password !== input.confirmPassword"
           class="invalid-password"
-        >Passwords do not match!</p>
+        >
+          Passwords do not match!
+        </p>
 
-        <p class="signedUp-msg" v-if="input.signedUp">You have created an account!</p>
+        <p class="signedUp-msg" v-if="input.signedUp">
+          You have created an account!
+        </p>
 
-        <p v-if="input.error" class="error">{{input.error}}</p>
+        <p v-if="input.error" class="error">{{ input.error }}</p>
 
-        <button class="signUpBtn" type="submit" v-on:click="clickHandler()">Sign Up</button>
+        <button class="signUpBtn" type="submit" v-on:click="clickHandler()">
+          Sign Up
+        </button>
       </form>
 
       <button class="backToLogIn">
-        <router-link :to="{ name: 'login' }" class="backToLogIn">Back to Log In</router-link>
+        <router-link :to="{ name: 'login' }" class="backToLogIn"
+          >Back to Log In</router-link
+        >
       </button>
       <button class="backToLogIn">
-        <router-link :to="{ name: 'instructions' }" class="backToLogIn">How to Play</router-link>
+        <router-link :to="{ name: 'instructions' }" class="backToLogIn"
+          >How to Play</router-link
+        >
       </button>
     </div>
   </div>
@@ -77,13 +93,13 @@ export default {
         password: "",
         confirmPassword: "",
         signedUp: false,
-        error: false
-      }
+        error: false,
+      },
     };
   },
   components: {
     IntroMessage,
-    Header
+    Header,
   },
   methods: {
     addNewParentUser(event) {
@@ -101,7 +117,7 @@ export default {
       const parentDoc = { username: window.localStorage.username };
       auth
         .createUserWithEmailAndPassword(this.input.email, this.input.password)
-        .then(cred => {
+        .then((cred) => {
           const usernameObj = { displayName: theUsername };
           cred.user.updateProfile(usernameObj);
 
@@ -110,7 +126,7 @@ export default {
             .doc(cred.user.uid)
             .set(parentDoc);
         })
-        .catch(err => {
+        .catch((err) => {
           this.input.error = err.message;
         });
 
@@ -122,8 +138,8 @@ export default {
       } else {
         this.input.signedUp = false;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -137,6 +153,8 @@ export default {
   margin-top: 10px;
   padding: 20px;
   border-radius: 30px;
+  margin-bottom: 2%;
+  box-shadow: 0 8px 6px -6px black;
 }
 @media screen and (min-width: 600px) {
   #new-account-login {
@@ -145,6 +163,8 @@ export default {
     background-color: #e6e6fa;
     padding: 20px;
     border-radius: 30px;
+    margin-bottom: 2%;
+    box-shadow: 0 8px 6px -6px black;
   }
 }
 @media screen and (max-width: 600px) {
@@ -154,6 +174,8 @@ export default {
     background-color: #e6e6fa;
     padding: 20px;
     border-radius: 30px;
+    margin-bottom: 2%;
+    box-shadow: 0 8px 6px -6px black;
   }
   #login {
     width: 85%;
@@ -162,6 +184,8 @@ export default {
     border-radius: 30px;
     margin: auto;
     padding: 20px;
+    margin-bottom: 2%;
+    box-shadow: 0 8px 6px -6px black;
   }
 }
 

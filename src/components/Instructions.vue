@@ -6,23 +6,39 @@
         v-if="$routerHistory.hasPrevious()"
         :to="{ path: $routerHistory.previous().path }"
         class="back-link"
-      >Go Back</router-link>
+        >Go Back</router-link
+      >
     </button>
     <div id="instruction-list">
       <h1 class="welcome-msg">Instructions</h1>
       <p>Welcome to the Butterfly Hunt!</p>
 
-      <p>We created this app in the hope of bringing some fun, color, and wonder into people's homes, while the whole world is socially distancing!</p>
+      <p>
+        We created this app in the hope of bringing some fun, color, and wonder
+        into people's homes, while the whole world is socially distancing!
+      </p>
 
       <ul class="instructions">
         <li>
           <h3 class="listItem">Step 1 - Create Your Account</h3>
           <div class="imgbar">
             <img src="../assets/Images/loginsquare.jpg" />
-            <img src="../assets/Images/newplayersquare.jpg" class="desktop-only" />
-            <img src="../assets/Images/Harrietsquare.jpg" class="desktop-only" />
+            <img
+              src="../assets/Images/newplayersquare.jpg"
+              class="desktop-only"
+            />
+            <img
+              src="../assets/Images/Harrietsquare.jpg"
+              class="desktop-only"
+            />
           </div>
-          <p>If you haven't already, just head to the home page to create your account, and add a user profile for the person who's going to be playing! This will give you access to the Butterfly Hunt, and allow you to add butterflies to your collection, so you can look at them whenever you like!</p>
+          <p>
+            If you haven't already, just head to the home page to create your
+            account, and add a user profile for the person who's going to be
+            playing! This will give you access to the Butterfly Hunt, and allow
+            you to add butterflies to your collection, so you can look at them
+            whenever you like!
+          </p>
         </li>
         <li>
           <h3 class="listItem">Step 2 - Make Your Mark!</h3>
@@ -30,16 +46,28 @@
             <img src="../assets/Images/pattern-pixil-frame-0 (8).png" />
             <img src="../assets/Images/hdrawnsquare.jpg" class="desktop-only" />
 
-            <img src="../assets/Images/finalMarkerssquare.jpg" class="desktop-only" />
+            <img
+              src="../assets/Images/finalMarkerssquare.jpg"
+              class="desktop-only"
+            />
           </div>
-          <p>Butterfly Hunt has five unique markers, which your phone or tablet will scan in order to bring the butterflies to life in your home!</p>
+          <p>
+            Butterfly Hunt has five unique markers, which your phone or tablet
+            will scan in order to bring the butterflies to life in your home!
+          </p>
 
           <button class="downloadbutton">Download Markers!</button>
           <p>
-            You can download a pdf of our markers from here!
-            If you have a printer, the next bit is easy! Print out the markers, and cut them out (they work best if you leave a little bit of white around the black borders!)
+            You can download a pdf of our markers from here! If you have a
+            printer, the next bit is easy! Print out the markers, and cut them
+            out (they work best if you leave a little bit of white around the
+            black borders!)
           </p>
-          <p>If you don't have a printer, we've tried to keep our designs simple enough that you can trace over them straight from your laptop screen! Be as precise as you can!</p>
+          <p>
+            If you don't have a printer, we've tried to keep our designs simple
+            enough that you can trace over them straight from your laptop
+            screen! Be as precise as you can!
+          </p>
         </li>
         <li>
           <h3 class="listItem">Step 3 - Place Your Markers!</h3>
@@ -49,9 +77,18 @@
 
             <img src="../assets/Images/shelfsquare.jpg" class="desktop-only" />
           </div>
-          <p>Once you've got your markers, all that remains is to place them! You can plant your markers anywhere that gets a bit of light, and that makes sure they're shown!</p>
+          <p>
+            Once you've got your markers, all that remains is to place them! You
+            can plant your markers anywhere that gets a bit of light, and that
+            makes sure they're shown!
+          </p>
 
-          <p>You can place these markers yourself, and check them every day to see what butterflies have wandered into your home, but if you have a friend or parent that can hide the markers for you, then you can be a true hunter! Searching the undergrowth for these rare breeds!</p>
+          <p>
+            You can place these markers yourself, and check them every day to
+            see what butterflies have wandered into your home, but if you have a
+            friend or parent that can hide the markers for you, then you can be
+            a true hunter! Searching the undergrowth for these rare breeds!
+          </p>
         </li>
         <li>
           <h3 class="listItem">Step 4 - Time to Go Huntin'!</h3>
@@ -59,7 +96,10 @@
             <img src="../assets/Images/letterboxsquare.jpg" />
             <img src="../assets/Images/fishiesquare.jpg" class="desktop-only" />
 
-            <img src="../assets/Images/fridgebutterflysquare.jpg" class="desktop-only" />
+            <img
+              src="../assets/Images/fridgebutterflysquare.jpg"
+              class="desktop-only"
+            />
           </div>
 
           <p>
@@ -78,8 +118,8 @@ import Header from "./Header.vue";
 export default {
   name: "Instructions",
   components: {
-    Header
-  }
+    Header,
+  },
 };
 </script>
 
@@ -113,6 +153,8 @@ export default {
     padding: 20px;
     text-align: left;
     display: grid;
+    margin-bottom: 2%;
+    box-shadow: 0 8px 6px -6px black;
   }
 
   .imgbar {
@@ -152,6 +194,8 @@ export default {
     padding: 20px;
     text-align: left;
     display: grid;
+    margin-bottom: 2%;
+    box-shadow: 0 8px 6px -6px black;
   }
   .desktop-only {
     display: none;

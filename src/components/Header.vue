@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
 };
 </script>
 
@@ -35,5 +35,7 @@ export default {
   padding: 0em;
   margin-top: 0;
   margin-bottom: 0;
+  text-shadow: 0 0 1px #011502, 0 0 5px #011502, 0 0 10px #01200f,
+    0 0 20px #01200f, 0 0 25px #32746d, 0 0 30px #32746d;
 }
 </style>
