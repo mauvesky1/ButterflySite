@@ -2,7 +2,7 @@
   <div>
     <Header />
     <div id="profile">
-      <h1 class="welcome-msg">Welcome {{ $route.params.parentusername }}</h1>
+      <h1 class="welcome-msg" v-html="username"></h1>
 
       <p>Welcome to your Butterfly House Account!</p>
       <p>Here you can add as many player profiles as you like, or select an existing profile, to catch butterflies to your own collection!</p>
@@ -27,7 +27,9 @@
 <script>
 import Header from "./Header.vue";
 import CreateChildProfile from "./CreateChildProfile.vue";
+import * as firebase from "firebase";
 import { firestore } from "firebase";
+import "@firebase/auth";
 
 export default {
   name: "ParentProfile",
@@ -37,10 +39,17 @@ export default {
   },
   data() {
     return {
-      childrenUsers: []
+      childrenUsers: [],
+      username: null
     };
   },
   created() {
+    const auth = firebase.auth();
+
+    auth.onAuthStateChanged(user => {
+      this.username = `Welcome ${user.displayName}`;
+    });
+
     firestore()
       .collection(`parents/${window.localStorage.uid}/userProfiles`)
       .get()
