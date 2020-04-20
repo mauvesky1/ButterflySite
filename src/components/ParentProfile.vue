@@ -1,11 +1,8 @@
 <template>
   <div>
     <Header />
-    <button class="top-btn">
-      <router-link :to="{ name: 'instructions' }" class="top-link"
-        >How to Play</router-link
-      >
-    </button>
+    <BackButton />
+    <HowToPlayButton />
     <LogOut />
     <div id="profile">
       <h1 class="welcome-msg" v-html="username"></h1>
@@ -16,11 +13,7 @@
         existing profile, to catch butterflies to your own collection!
       </p>
       <ul class="gridlist">
-        <li
-          v-for="child in childrenUsers"
-          :key="child.username"
-          class="child-username"
-        >
+        <li v-for="child in childrenUsers" :key="child.username" class="child-username">
           <router-link
             :to="{
               name: 'ChildProfile',
@@ -42,6 +35,8 @@
 
 <script>
 import Header from "./Header.vue";
+import BackButton from "./BackButton";
+import HowToPlayButton from "./HowToPlayButton";
 import CreateChildProfile from "./CreateChildProfile.vue";
 import LogOut from "./Logout";
 import * as firebase from "firebase";
@@ -52,30 +47,32 @@ export default {
   name: "ParentProfile",
   components: {
     Header,
+    BackButton,
+    HowToPlayButton,
     CreateChildProfile,
-    LogOut,
+    LogOut
   },
   data() {
     return {
       childrenUsers: [],
-      username: "",
+      username: ""
     };
   },
   created() {
     const auth = firebase.auth();
 
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(user => {
       this.username = `Welcome ${user.displayName}`;
     });
 
     firestore()
       .collection(`parents/${window.localStorage.uid}/userProfiles`)
       .get()
-      .then((children) => {
-        children.docs.forEach((child) => {
+      .then(children => {
+        children.docs.forEach(child => {
           this.childrenUsers.push({
             username: child.lm.Ee.proto.mapValue.fields.username.stringValue,
-            avatarUrl: child.lm.Ee.proto.mapValue.fields.avatarUrl.stringValue,
+            avatarUrl: child.lm.Ee.proto.mapValue.fields.avatarUrl.stringValue
           });
         });
       });
@@ -83,8 +80,8 @@ export default {
   methods: {
     addNewChild(newChildUser) {
       this.childrenUsers = [...this.childrenUsers, newChildUser];
-    },
-  },
+    }
+  }
 };
 </script>
 
