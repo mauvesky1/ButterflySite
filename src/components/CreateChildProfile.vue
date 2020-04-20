@@ -3,47 +3,26 @@
     <button
       class="create-child-link"
       v-on:click="childForm.showForm = !childForm.showForm"
-    >
-      New Player
-    </button>
+    >New Player</button>
 
-    <form
-      id="new-child-account-login"
-      @submit="addNewChildUser"
-      v-if="childForm.showForm"
-    >
+    <form id="new-child-account-login" @submit="addNewChildUser" v-if="childForm.showForm">
       <label class="child-username">Username:</label>
-      <input
-        type="text"
-        v-model="childForm.username"
-        placeholder="Enter Username"
-        required
-      />
+      <input type="text" v-model="childForm.username" placeholder="Enter Username" required />
       Select a user image:
-      <p
-        v-for="animalType in avatarImages"
-        :key="animalType.id"
-        class="animal-type"
-      >
+      <p v-for="animalType in avatarImages" :key="animalType.id" class="animal-type">
         <br />
         <img
           :src="animalType.imageUrl"
           :key="animalType.id"
           class="avatar-img"
-<<<<<<< Updated upstream
-          @click="childForm.avatarUrl = animalType.imageUrl"
-=======
           v-bind:class="{chosen: animalType.chosen}"
           @click="childForm.avatarUrl = animalType.imageUrl, childForm.avatarUrl === childForm.avatarUrl ? animalType.chosen = !animalType.chosen : animalType.chosen = false"
->>>>>>> Stashed changes
         />
         <br />
         {{ animalType.animal }}
       </p>
 
-      <label class="avatar-title"
-        >If you have a custom user image, you can post the url here:</label
-      >
+      <label class="avatar-title">If you have a custom user image, you can post the url here:</label>
       <input
         type="text"
         v-model="childForm.avatarUrl"
@@ -51,13 +30,9 @@
         required
       />
 
-      <p v-if="childForm.signedUp" class="new-account-msg">
-        You have created an account!
-      </p>
+      <p v-if="childForm.signedUp" class="new-account-msg">You have created an account!</p>
 
-      <button class="sign-up-btn" type="submit" v-on:click="showForm()">
-        Create Profile!
-      </button>
+      <button class="sign-up-btn" type="submit" v-on:click="showForm()">Create Profile!</button>
     </form>
   </div>
 </template>
@@ -73,26 +48,11 @@ export default {
         username: "",
         avatarUrl: "",
         signedUp: false,
-        showForm: false,
+        showForm: false
       },
       avatarImages: [
         {
           id: 1,
-<<<<<<< Updated upstream
-          animal: "Monkey",
-          imageUrl:
-            "https://i.pinimg.com/originals/b7/e0/38/b7e03818a217be00331cb18645351c62.jpg",
-          chosen: false,
-        },
-        {
-          id: 2,
-          animal: "Giraffe",
-          imageUrl:
-            "https://i.pinimg.com/600x315/56/12/94/56129403b7ca6ecd388cdff3d5b23978.jpg",
-          chosen: false,
-        },
-      ],
-=======
           animal: "Elephant",
           imageUrl: require("../assets/Images/Elephant.png"),
           chosen: false
@@ -128,7 +88,6 @@ export default {
           chosen: false
         }
       ]
->>>>>>> Stashed changes
     };
   },
   methods: {
@@ -141,18 +100,18 @@ export default {
 
       docRef.set({
         username: this.childForm.username,
-        avatarUrl: this.childForm.avatarUrl,
+        avatarUrl: this.childForm.avatarUrl
       });
 
       const newChildUser = {
         username: this.childForm.username,
-        avatarUrl: this.childForm.avatarUrl,
+        avatarUrl: this.childForm.avatarUrl
       };
 
       this.$emit("add-new-child", newChildUser);
       this.childForm.username = "";
       this.childForm.avatarUrl = "";
-    },
+    }
   },
   showForm() {
     this.childForm.username.length !== 0 &&
@@ -160,10 +119,7 @@ export default {
       ? (this.childForm.signedUp = !this.childForm.signedUp)
       : (this.childForm.signedUp = false);
   },
-<<<<<<< Updated upstream
-=======
   chosenAvatar() {}
->>>>>>> Stashed changes
 };
 </script>
 
@@ -271,7 +227,7 @@ export default {
 .chosen {
   background-color: #d95c26;
   border-radius: 50%;
-  width: 50%;
+  width: 20vh;
   height: 20vh;
 }
 </style>
