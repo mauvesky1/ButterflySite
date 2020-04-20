@@ -34,8 +34,9 @@ export default {
     logout() {
       const auth = firebase.auth();
       let authenticated = this.authenticated;
-
+      console.log(authenticated);
       auth.signOut().then(cred => {
+        console.log(cred);
         authenticated = false;
       });
     }
