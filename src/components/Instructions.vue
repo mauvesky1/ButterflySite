@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+<<<<<<< Updated upstream
     <button class="back-btn">
       <router-link
         v-if="$routerHistory.hasPrevious()"
@@ -9,6 +10,13 @@
         >Go Back</router-link
       >
     </button>
+=======
+    <nav id="navbar">
+      <BackButton class="navbutt" />
+      <HowToPlayButton class="navbutt" />
+      <LogOut class="navbutt" />
+    </nav>
+>>>>>>> Stashed changes
     <div id="instruction-list">
       <h1 class="welcome-msg">Instructions</h1>
       <p>Welcome to the Butterfly Hunt!</p>
@@ -114,12 +122,22 @@
 
 <script>
 import Header from "./Header.vue";
+import BackButton from "./BackButton";
+import LogOut from "./Logout";
+import HowToPlayButton from "./HowToPlayButton";
 
 export default {
   name: "Instructions",
   components: {
     Header,
+<<<<<<< Updated upstream
   },
+=======
+    BackButton,
+    LogOut,
+    HowToPlayButton
+  }
+>>>>>>> Stashed changes
 };
 </script>
 
@@ -151,7 +169,7 @@ export default {
     border-radius: 30px;
     margin: auto;
     padding: 20px;
-    text-align: left;
+    text-align: center;
     display: grid;
     margin-bottom: 2%;
     box-shadow: 0 8px 6px -6px black;
@@ -181,9 +199,23 @@ export default {
   }
 }
 @media screen and (max-width: 600px) {
+  #navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    column-count: 3;
+    column-gap: 1em;
+    row-gap: 1em;
+    padding: 1em;
+  }
+  .navbutt {
+    width: 100%;
+    height: auto;
+  }
   ul {
     list-style: none;
     margin: 0;
+    padding-left: 0;
   }
   #instruction-list {
     width: 85%;
@@ -192,7 +224,7 @@ export default {
     border-radius: 30px;
     margin: auto;
     padding: 20px;
-    text-align: left;
+    text-align: ce;
     display: grid;
     margin-bottom: 2%;
     box-shadow: 0 8px 6px -6px black;

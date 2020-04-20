@@ -1,11 +1,16 @@
 <template>
   <div>
     <Header />
+<<<<<<< Updated upstream
     <button class="top-btn">
       <router-link :to="{ name: 'instructions' }" class="top-link"
         >How to Play</router-link
       >
     </button>
+=======
+    <BackButton />
+    <HowToPlayButton />
+>>>>>>> Stashed changes
     <LogOut />
     <div id="profile">
       <h1 class="welcome-msg" v-html="username"></h1>
@@ -42,6 +47,8 @@
 
 <script>
 import Header from "./Header.vue";
+import BackButton from "./BackButton";
+import HowToPlayButton from "./HowToPlayButton";
 import CreateChildProfile from "./CreateChildProfile.vue";
 import LogOut from "./Logout";
 import * as firebase from "firebase";
@@ -52,6 +59,8 @@ export default {
   name: "ParentProfile",
   components: {
     Header,
+    BackButton,
+    HowToPlayButton,
     CreateChildProfile,
     LogOut,
   },

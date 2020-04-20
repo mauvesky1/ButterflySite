@@ -1,15 +1,8 @@
 <template>
   <div>
-    <button class="back-btn">
-      <router-link
-        v-if="$routerHistory.hasPrevious()"
-        :to="{ path: $routerHistory.previous().path }"
-        class="back-link"
-      >Back to Child Profile</router-link>
-    </button>
-    <button class="top-btn">
-      <router-link :to="{ name: 'instructions' }" class="top-link">How to Play</router-link>
-    </button>
+    <Header />
+    <BackButton />
+    <HowToPlayButton />
     <LogOut />
     <br />
     <iframe :src="url" allow="camera *;" class="frame" width="700" height="800"></iframe>
@@ -18,6 +11,8 @@
 
 <script>
 import LogOut from "./Logout";
+import BackButton from "./BackButton";
+import HowToPlayButton from "./HowToPlayButton";
 
 export default {
   name: "Butterflyhunt",
@@ -26,7 +21,7 @@ export default {
       url: this.URLMaker()
     };
   },
-  components: { LogOut },
+  components: { LogOut, BackButton, HowToPlayButton },
   methods: {
     URLMaker() {
       const newUrl =

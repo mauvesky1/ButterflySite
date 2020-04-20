@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+<<<<<<< Updated upstream
     <button class="back-btn">
       <router-link
         v-if="$routerHistory.hasPrevious()"
@@ -14,6 +15,10 @@
         >How to Play</router-link
       >
     </button>
+=======
+    <BackButton />
+    <HowToPlayButton />
+>>>>>>> Stashed changes
     <LogOut />
     <div id="child-profile">
       <img :src="`${avatarUrl}`" class="avatar" />
@@ -44,10 +49,12 @@
 import Header from "./Header.vue";
 import { firestore } from "firebase";
 import LogOut from "./Logout";
+import BackButton from "./BackButton";
+import HowToPlayButton from "./HowToPlayButton";
 
 export default {
   name: "ChildProfile",
-  components: { Header, LogOut },
+  components: { Header, LogOut, BackButton, HowToPlayButton },
   data() {
     return {
       username: "",

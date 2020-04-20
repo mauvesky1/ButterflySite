@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+<<<<<<< Updated upstream
     <button class="back-btn">
       <router-link
         v-if="$routerHistory.hasPrevious()"
@@ -14,6 +15,10 @@
         >How to Play</router-link
       >
     </button>
+=======
+    <BackButton />
+    <HowToPlayButton />
+>>>>>>> Stashed changes
     <LogOut />
     <div id="toptext">
       <h1 class="butterfly-collection-title">Butterfly Collection:</h1>
@@ -56,6 +61,8 @@
 import Header from "./Header.vue";
 import { firestore } from "firebase";
 import LogOut from "./Logout";
+import HowToPlayButton from "./HowToPlayButton";
+import BackButton from "./BackButton";
 
 export default {
   name: "Collection",
@@ -216,7 +223,7 @@ export default {
       ],
     };
   },
-  components: { Header, LogOut },
+  components: { Header, LogOut, BackButton, HowToPlayButton },
   created() {
     firestore()
       .collection(`parents/${window.localStorage.uid}/userProfiles`)
@@ -322,9 +329,10 @@ export default {
     box-shadow: 0 8px 6px -6px black;
   }
   .gridlist {
-    width: 85%;
+    width: 100%;
     padding: 1em;
     list-style: none;
+    text-align: center;
   }
   .butterfly-details {
     width: 85%;
