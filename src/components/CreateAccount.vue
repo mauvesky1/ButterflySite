@@ -7,13 +7,7 @@
 
       <form @submit="addNewParentUser">
         <label class="email-signup">Email</label>
-        <input
-          type="text"
-          name="email"
-          v-model="input.email"
-          placeholder="Enter Email"
-          required
-        />
+        <input type="text" name="email" v-model="input.email" placeholder="Enter Email" required />
 
         <label class="username-signup">Username</label>
         <input
@@ -47,31 +41,20 @@
         <p
           v-if="input.password !== input.confirmPassword"
           class="invalid-password"
-        >
-          Passwords do not match!
-        </p>
+        >Passwords do not match!</p>
 
-        <p class="signedUp-msg" v-if="input.signedUp">
-          You have created an account!
-        </p>
+        <p class="signedUp-msg" v-if="input.signedUp">You have created an account!</p>
 
         <p v-if="input.error" class="error">{{ input.error }}</p>
 
-        <button class="signUpBtn" type="submit" v-on:click="clickHandler()">
-          Sign Up
-        </button>
+        <button class="signUpBtn" type="submit" v-on:click="clickHandler()">Sign Up</button>
       </form>
-
-      <button class="backToLogIn">
-        <router-link :to="{ name: 'login' }" class="backToLogIn"
-          >Back to Log In</router-link
-        >
-      </button>
-      <button class="backToLogIn">
-        <router-link :to="{ name: 'instructions' }" class="backToLogIn"
-          >How to Play</router-link
-        >
-      </button>
+      <router-link :to="{ name: 'login' }" class="backToLogIn">
+        <button class="backToLogIn">Back to Log In</button>
+      </router-link>
+      <router-link :to="{ name: 'instructions' }" class="backToLogIn">
+        <button class="backToLogIn">How to Play</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -93,13 +76,13 @@ export default {
         password: "",
         confirmPassword: "",
         signedUp: false,
-        error: false,
-      },
+        error: false
+      }
     };
   },
   components: {
     IntroMessage,
-    Header,
+    Header
   },
   methods: {
     addNewParentUser(event) {
@@ -117,7 +100,7 @@ export default {
       const parentDoc = { username: window.localStorage.username };
       auth
         .createUserWithEmailAndPassword(this.input.email, this.input.password)
-        .then((cred) => {
+        .then(cred => {
           const usernameObj = { displayName: theUsername };
           cred.user.updateProfile(usernameObj);
 
@@ -126,7 +109,7 @@ export default {
             .doc(cred.user.uid)
             .set(parentDoc);
         })
-        .catch((err) => {
+        .catch(err => {
           this.input.error = err.message;
         });
 
@@ -138,8 +121,8 @@ export default {
       } else {
         this.input.signedUp = false;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -220,7 +203,7 @@ export default {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 80%;
+  width: 75%;
   margin-top: 5px;
   margin-bottom: 20px;
 }
@@ -235,7 +218,6 @@ export default {
   text-decoration: none;
   text-decoration: none;
   font-size: 18px;
-
   background-color: #d95c26;
   color: white;
   padding: 14px 20px;
@@ -243,7 +225,7 @@ export default {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 80%;
+  width: 70%;
 }
 
 input[type="text"],

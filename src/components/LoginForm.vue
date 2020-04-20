@@ -28,24 +28,14 @@
         />
         <br />
         <p v-if="input.error" class="error">{{ input.error }}</p>
-        <button class="signIn-btn" type="button" v-on:click="login()">
-          Sign In
+        <button class="signIn-btn" type="button" v-on:click="login()">Sign In</button>
+        <br />
+        <button class="create-account-btn">
+          <router-link :to="{ name: 'createAccount' }" class="create-account-link">Create An Account</router-link>
         </button>
         <br />
         <button class="create-account-btn">
-          <router-link
-            :to="{ name: 'createAccount' }"
-            class="create-account-link"
-            >Create An Account</router-link
-          >
-        </button>
-        <br />
-        <button class="create-account-btn">
-          <router-link
-            :to="{ name: 'instructions' }"
-            class="create-account-link"
-            >How to Play</router-link
-          >
+          <router-link :to="{ name: 'instructions' }" class="create-account-link">How to Play</router-link>
         </button>
       </form>
     </div>
@@ -65,13 +55,13 @@ export default {
       input: {
         email: "",
         password: "",
-        error: false,
-      },
+        error: false
+      }
     };
   },
   components: {
     IntroMessage,
-    Header,
+    Header
   },
   methods: {
     login() {
@@ -80,23 +70,23 @@ export default {
       if (this.input.email !== "" && this.input.password !== "") {
         auth
           .signInWithEmailAndPassword(this.input.email, this.input.password)
-          .then((cred) => {
+          .then(cred => {
             window.localStorage.setItem("uid", cred.user.uid);
 
             this.$emit("authenticated", true);
             this.$router.replace({
               name: "parentProfile",
-              params: { parentusername: this.input.email },
+              params: { parentusername: this.input.email }
             });
           })
-          .catch((err) => {
+          .catch(err => {
             this.input.error = err.message;
           });
       } else {
         this.input.error = "An email and password must be present";
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

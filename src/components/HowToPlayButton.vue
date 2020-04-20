@@ -1,7 +1,7 @@
   <template>
-  <button class="top-btn">
-    <router-link :to="{ name: 'instructions' }" class="top-link">How to Play</router-link>
-  </button>
+  <router-link :to="{ name: 'instructions' }">
+    <button class="top-btn">How to Play</button>
+  </router-link>
 </template>
 
 <script>
@@ -11,15 +11,12 @@ export default {
 </script>
 
 <style>
-.top-link {
-  text-decoration: none;
-  color: white;
-}
-
 .top-btn {
   font-size: 18px;
   border-radius: 30px;
 
+  text-decoration: none;
+  color: white;
   border: 2px solid #cccccc;
   background: rgba(204, 204, 204, 0.2);
   padding: 14px 20px;
