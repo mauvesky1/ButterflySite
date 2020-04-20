@@ -2,18 +2,30 @@
   <div>
     <Header />
     <button class="top-btn">
-      <router-link :to="{ name: 'instructions' }" class="top-link">How to Play</router-link>
+      <router-link :to="{ name: 'instructions' }" class="top-link"
+        >How to Play</router-link
+      >
     </button>
     <LogOut />
     <div id="profile">
       <h1 class="welcome-msg" v-html="username"></h1>
 
       <p>Welcome to your Butterfly House Account!</p>
-      <p>Here you can add as many player profiles as you like, or select an existing profile, to catch butterflies to your own collection!</p>
+      <p>
+        Here you can add as many player profiles as you like, or select an
+        existing profile, to catch butterflies to your own collection!
+      </p>
       <ul class="gridlist">
-        <li v-for="child in childrenUsers" :key="child.username" class="child-username">
+        <li
+          v-for="child in childrenUsers"
+          :key="child.username"
+          class="child-username"
+        >
           <router-link
-            :to="{ name: 'ChildProfile', params: { username: child.username, url: child.avatarUrl } }"
+            :to="{
+              name: 'ChildProfile',
+              params: { username: child.username, url: child.avatarUrl },
+            }"
             class="child-link"
           >
             <img :src="child.avatarUrl" class="avatar-url" />
@@ -41,29 +53,29 @@ export default {
   components: {
     Header,
     CreateChildProfile,
-    LogOut
+    LogOut,
   },
   data() {
     return {
       childrenUsers: [],
-      username: ""
+      username: "",
     };
   },
   created() {
     const auth = firebase.auth();
 
-    auth.onAuthStateChanged(user => {
+    auth.onAuthStateChanged((user) => {
       this.username = `Welcome ${user.displayName}`;
     });
 
     firestore()
       .collection(`parents/${window.localStorage.uid}/userProfiles`)
       .get()
-      .then(children => {
-        children.docs.forEach(child => {
+      .then((children) => {
+        children.docs.forEach((child) => {
           this.childrenUsers.push({
             username: child.lm.Ee.proto.mapValue.fields.username.stringValue,
-            avatarUrl: child.lm.Ee.proto.mapValue.fields.avatarUrl.stringValue
+            avatarUrl: child.lm.Ee.proto.mapValue.fields.avatarUrl.stringValue,
           });
         });
       });
@@ -71,8 +83,8 @@ export default {
   methods: {
     addNewChild(newChildUser) {
       this.childrenUsers = [...this.childrenUsers, newChildUser];
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -87,6 +99,8 @@ export default {
     padding: 20px;
     text-align: center;
     display: grid;
+    margin-bottom: 2%;
+    box-shadow: 0 8px 6px -6px black;
   }
 }
 @media screen and (min-width: 601px) {
@@ -99,6 +113,8 @@ export default {
     padding: 20px;
     text-align: center;
     display: grid;
+    margin-bottom: 2%;
+    box-shadow: 0 8px 6px -6px black;
   }
 }
 
