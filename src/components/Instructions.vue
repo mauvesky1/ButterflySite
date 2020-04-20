@@ -44,7 +44,10 @@
             will scan in order to bring the butterflies to life in your home!
           </p>
 
-          <a href="../assets/Images/finalMarkers.pdf" target="_blank">
+          <a
+            href="https://github.com/conwayhub/markertests/raw/master/Markersheet.pdf"
+            target="_blank"
+          >
             <button class="downloadbutton">Download Markers!</button>
           </a>
           <p>
@@ -260,6 +263,9 @@ export default {
     cursor: pointer;
     width: 75%;
   }
+}
+a {
+  text-decoration: none;
 }
 img {
   width: 100%;
