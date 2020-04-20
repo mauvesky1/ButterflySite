@@ -8,19 +8,20 @@
     <form id="new-child-account-login" @submit="addNewChildUser" v-if="childForm.showForm">
       <label class="child-username">Username:</label>
       <input type="text" v-model="childForm.username" placeholder="Enter Username" required />
-      Select a user image:
-      <p v-for="animalType in avatarImages" :key="animalType.id" class="animal-type">
-        <br />
-        <img
-          :src="animalType.imageUrl"
-          :key="animalType.id"
-          class="avatar-img"
-          v-bind:class="{chosen: animalType.chosen}"
-          @click="childForm.avatarUrl = animalType.imageUrl, childForm.avatarUrl === childForm.avatarUrl ? animalType.chosen = !animalType.chosen : animalType.chosen = false"
-        />
-        <br />
-        {{ animalType.animal }}
-      </p>
+      <b>Select a user image:</b>
+      <ul class="gridicons">
+        <li v-for="animalType in avatarImages" :key="animalType.id" class="animal-type">
+          <br />
+          <img
+            :src="animalType.imageUrl"
+            :key="animalType.id"
+            class="avatar-img"
+            @click="childForm.avatarUrl = animalType.imageUrl;"
+          />
+          <br />
+          {{ animalType.animal }}
+        </li>
+      </ul>
 
       <label class="avatar-title">If you have a custom user image, you can post the url here:</label>
       <input
@@ -124,15 +125,7 @@ export default {
 </script>
 
 <style scoped>
-#new-child-account-login
-  @media
-  only
-  screen
-  and
-  (min-device-width: 414px)
-  and
-  (max-device-width: 736px)
-  and(-webkit-min-device-pixel-ratio: 3) {
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and(-webkit-min-device-pixel-ratio: 3) {
   #new-child-account-login {
     width: 65%;
     border: 1px solid #cccccc;
@@ -224,10 +217,35 @@ export default {
   margin-bottom: 20px;
 }
 
-.chosen {
+.avatar-img:hover {
   background-color: #d95c26;
   border-radius: 50%;
   width: 20vh;
   height: 20vh;
+}
+@media screen and (min-width: 700px) {
+  .gridicons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    column-count: 3;
+    column-gap: 1em;
+    row-gap: 1em;
+    padding: 1em;
+  }
+}
+@media screen and (max-width: 699px) {
+  .gridicons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style: none;
+    column-count: 2;
+    column-gap: 1em;
+    row-gap: 1em;
+    padding: 1em;
+    margin: -40px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 }
 </style>
