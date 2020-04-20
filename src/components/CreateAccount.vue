@@ -37,16 +37,17 @@
         />
 
         <br />
+
         <p
           v-if="input.password !== input.confirmPassword"
           class="invalid-password"
         >Passwords do not match!</p>
 
-        <p
-          class="signedUp-msg"
-          v-if="input.signedUp && input.password === input.confirmPassword"
-        >You have created an account!</p>
-        <button class="signUpBtn" type="submit" v-on:click="clickHandler">Sign Up</button>
+        <p class="signedUp-msg" v-if="input.signedUp">You have created an account!</p>
+
+        <p v-if="input.error" class="error">{{input.error}}</p>
+
+        <button class="signUpBtn" type="submit" v-on:click="clickHandler()">Sign Up</button>
       </form>
 
       <button class="backToLogIn">
@@ -72,7 +73,8 @@ export default {
         username: "",
         password: "",
         confirmPassword: "",
-        signedUp: false
+        signedUp: false,
+        error: false
       }
     };
   },
@@ -113,14 +115,16 @@ export default {
             .collection("parents")
             .doc(cred.user.uid)
             .set(parentDoc);
+        })
+        .catch(err => {
+          this.input.error = err.message;
         });
 
-      if (
-        this.input.username.length !== 0 &&
-        this.input.password.length !== 0 &&
-        this.input.confirmPassword.length !== 0
-      ) {
+      const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gim;
+
+      if (emailRegex.test(this.input.email)) {
         this.input.signedUp = !this.input.signedUp;
+        this.input.error = false;
       } else {
         this.input.signedUp = false;
       }
@@ -166,45 +170,11 @@ export default {
     padding: 20px;
   }
 }
-/* 
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
-  #new-account-login {
-    width: 330px;
-    border: 1px solid #cccccc;
-    margin: auto;
-    margin-top: 10px;
-    padding: 20px;
-    color: white;
-    border-radius: 30px;
-    background-color: white;
-  }
-}
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-  #new-account-login {
-    width: 325px;
-    border: 1px solid #cccccc;
-    margin: auto;
-    margin-top: 10px;
-    padding: 20px;
-    color: white;
-    border-radius: 30px;
-    background-color: white;
-  }
+.error {
+  color: red;
+  font-weight: bold;
 }
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-  #new-account-login {
-    width: 320px;
-    border: 1px solid #cccccc;
-    margin: auto;
-    margin-top: 10px;
-    padding: 20px;
-    color: white;
-    border-radius: 30px;
-    background-color: white;
-  }
-} */
 
 .signUp-title {
   color: #d95c26;
@@ -251,40 +221,6 @@ export default {
   cursor: pointer;
   width: 75%;
 }
-/* 
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-  .backToLogIn {
-    text-decoration: none;
-    color: black;
-    text-decoration: none;
-    font-size: 18px;
-    background-color: black;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-    width: 65%;
-  }
-}
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-  .backToLogIn {
-    text-decoration: none;
-    color: black;
-    text-decoration: none;
-    font-size: 18px;
-    background-color: black;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-    width: 70%;
-  }
-} */
 
 input[type="text"],
 input[type="password"] {
