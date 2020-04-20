@@ -30,7 +30,12 @@
           :src="animalType.imageUrl"
           :key="animalType.id"
           class="avatar-img"
+<<<<<<< Updated upstream
           @click="childForm.avatarUrl = animalType.imageUrl"
+=======
+          v-bind:class="{chosen: animalType.chosen}"
+          @click="childForm.avatarUrl = animalType.imageUrl, childForm.avatarUrl === childForm.avatarUrl ? animalType.chosen = !animalType.chosen : animalType.chosen = false"
+>>>>>>> Stashed changes
         />
         <br />
         {{ animalType.animal }}
@@ -42,7 +47,7 @@
       <input
         type="text"
         v-model="childForm.avatarUrl"
-        placeholder="Select from below, or link your own image!"
+        placeholder="Select from above or link your own image"
         required
       />
 
@@ -73,6 +78,7 @@ export default {
       avatarImages: [
         {
           id: 1,
+<<<<<<< Updated upstream
           animal: "Monkey",
           imageUrl:
             "https://i.pinimg.com/originals/b7/e0/38/b7e03818a217be00331cb18645351c62.jpg",
@@ -86,6 +92,43 @@ export default {
           chosen: false,
         },
       ],
+=======
+          animal: "Elephant",
+          imageUrl: require("../assets/Images/Elephant.png"),
+          chosen: false
+        },
+        {
+          id: 2,
+          animal: "Lion",
+          imageUrl: require("../assets/Images/Lion.png"),
+          chosen: false
+        },
+        {
+          id: 3,
+          animal: "Bunny",
+          imageUrl: require("../assets/Images/Bunny.png"),
+          chosen: false
+        },
+        {
+          id: 4,
+          animal: "Panda",
+          imageUrl: require("../assets/Images/Panda.png"),
+          chosen: false
+        },
+        {
+          id: 5,
+          animal: "Penguin",
+          imageUrl: require("../assets/Images/Penguin.png"),
+          chosen: false
+        },
+        {
+          id: 6,
+          animal: "Koala",
+          imageUrl: require("../assets/Images/Koala.png"),
+          chosen: false
+        }
+      ]
+>>>>>>> Stashed changes
     };
   },
   methods: {
@@ -117,6 +160,10 @@ export default {
       ? (this.childForm.signedUp = !this.childForm.signedUp)
       : (this.childForm.signedUp = false);
   },
+<<<<<<< Updated upstream
+=======
+  chosenAvatar() {}
+>>>>>>> Stashed changes
 };
 </script>
 
@@ -221,7 +268,10 @@ export default {
   margin-bottom: 20px;
 }
 
-.chosen-animal {
-  color: black;
+.chosen {
+  background-color: #d95c26;
+  border-radius: 50%;
+  width: 50%;
+  height: 20vh;
 }
 </style>
