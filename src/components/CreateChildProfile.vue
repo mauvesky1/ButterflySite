@@ -8,15 +8,7 @@
     <form id="new-child-account-login" @submit="addNewChildUser" v-if="childForm.showForm">
       <label class="child-username">Username:</label>
       <input type="text" v-model="childForm.username" placeholder="Enter Username" required />
-
-      <label class="avatar-title">Choose an avatar:</label>
-      <input
-        type="text"
-        v-model="childForm.avatarUrl"
-        placeholder="Select from below, or link your own image!"
-        required
-      />
-
+      Select a user image:
       <p v-for="animalType in avatarImages" :key="animalType.id" class="animal-type">
         <br />
         <img
@@ -29,9 +21,17 @@
         {{ animalType.animal }}
       </p>
 
+      <label class="avatar-title">If you have a custom user image, you can post the url here:</label>
+      <input
+        type="text"
+        v-model="childForm.avatarUrl"
+        placeholder="Select from below, or link your own image!"
+        required
+      />
+
       <p v-if="childForm.signedUp" class="new-account-msg">You have created an account!</p>
 
-      <button class="sign-up-btn" type="submit" v-on:click="showForm()">Sign Up</button>
+      <button class="sign-up-btn" type="submit" v-on:click="showForm()">Create Profile!</button>
     </form>
   </div>
 </template>
@@ -110,7 +110,7 @@ export default {
   (max-device-width: 736px)
   and(-webkit-min-device-pixel-ratio: 3) {
   #new-child-account-login {
-    width: 300px;
+    width: 65%;
     border: 1px solid #cccccc;
     margin: auto;
     margin-top: 10px;
@@ -167,7 +167,7 @@ export default {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 100%;
+  width: 50%;
 }
 
 .new-account-msg {
