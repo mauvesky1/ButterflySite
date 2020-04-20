@@ -53,7 +53,9 @@ export default {
     const auth = firebase.auth();
 
     auth.onAuthStateChanged(user => {
-      this.username = `Welcome ${user.displayName}`;
+      if (user) {
+        this.username = `Welcome ${user.displayName}`;
+      }
     });
 
     firestore()

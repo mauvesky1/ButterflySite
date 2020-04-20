@@ -209,15 +209,12 @@ export default {
       .collection(`parents/${window.localStorage.uid}/userProfiles`)
       .get()
       .then(children => {
-        console.log(children.docs);
         children.docs.forEach(child => {
           const childRef = child.lm.Ee.proto.mapValue.fields;
 
           if (childRef.username.stringValue === this.$route.params.username) {
             Object.keys(childRef).forEach(key => {
               this.collection.forEach(butterfly => {
-                console.log(key);
-                console.log(butterfly.name, "hello", butterfly.unCaught);
                 if (butterfly.name === key) {
                   butterfly.unCaught = false;
                 }
