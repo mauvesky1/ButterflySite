@@ -26,10 +26,11 @@
           class="bfly"
           v-bind:class="{ uncaught: butterfly.unCaught }"
         />
-        <h2 class="butterfly-type">
-          Type:
-          <p v-bind:class="{ hidden: butterfly.unCaught }">{{ butterfly.type }}</p>
-        </h2>
+
+        <h2 class="butterfly-type">Type:</h2>
+        <p v-bind:class="{ hidden: butterfly.unCaught }">{{ butterfly.type }}</p>
+
+        <h3 class="butterfly-name">Caught: {{ butterfly.count}}</h3>
         <p
           v-bind:class="{ hidden: butterfly.unCaught }"
           class="butterfly-details"
@@ -53,6 +54,7 @@ export default {
           name: "Midas",
           number: 1,
           type: "Swallowtail",
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-1_1.png",
           unCaught: true,
@@ -64,6 +66,7 @@ export default {
           name: "Mother Of Pearl",
           type: "Swallowtail",
           number: 2,
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-1_2.png",
           unCaught: true,
@@ -74,6 +77,7 @@ export default {
           name: "Mexican Bluewing",
           type: "Swallowtail",
           number: 3,
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-1_3.png",
           unCaught: true,
@@ -84,9 +88,11 @@ export default {
           name: "Peacock",
           number: 4,
           type: "Swallowtail",
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-1_4.png",
           unCaught: true,
+
           details:
             "The Peacock Butterfly - also known as Aglais Io - is named after a mythological Greek princess, who fell in love with the god Zeus, and was turned into a cow for her troubles!  "
         },
@@ -94,9 +100,11 @@ export default {
           name: "Frosted Tip",
           number: 5,
           type: "Swallowtail",
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-1_5.png",
           unCaught: true,
+
           details:
             "The Frosted Tip is a highly discerning butterfly, with a penchant for fashion and pop music.  They enjoyed prominance during the late nineties and early 2000's, but have become rare in more recent years."
         },
@@ -104,6 +112,7 @@ export default {
           name: "Apetura Iris",
           number: 6,
           type: "Owl",
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-2_1.png",
           unCaught: true,
@@ -114,6 +123,7 @@ export default {
           name: "Starlet",
           number: 7,
           type: "Metalmark",
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-2_2.png",
           unCaught: true,
@@ -124,6 +134,7 @@ export default {
           name: "Stargazer",
           number: 8,
           type: "Owl",
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-2_3.png",
           unCaught: true,
@@ -134,6 +145,7 @@ export default {
           name: "Swirley-Harley",
           number: 9,
           type: "Metalmark",
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-2_4.png",
           unCaught: true,
@@ -144,6 +156,7 @@ export default {
           name: "Haywain",
           type: "Silkspinner",
           number: 10,
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-2_5.png",
           unCaught: true,
@@ -154,6 +167,7 @@ export default {
           name: "Shoreline",
           type: "Silkspinner",
           number: 11,
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-3_1.png",
           unCaught: true,
@@ -164,6 +178,7 @@ export default {
           name: "Purple Emperor",
           number: 12,
           type: "Owl",
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-3_2.png",
           unCaught: true,
@@ -174,6 +189,7 @@ export default {
           name: "Vive La France",
           number: 13,
           type: "Metalmark",
+          count: 0,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-3_3.png",
           unCaught: true,
@@ -183,6 +199,7 @@ export default {
         {
           name: "Scrying Glass",
           type: "Metalmark",
+          count: 0,
           number: 14,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-3_4.png",
@@ -193,6 +210,7 @@ export default {
         {
           name: "Seafoam",
           type: "Silkspinner",
+          count: 0,
           number: 15,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-3_5.png",
@@ -213,10 +231,12 @@ export default {
           const childRef = child.lm.Ee.proto.mapValue.fields;
 
           if (childRef.username.stringValue === this.$route.params.username) {
-            Object.keys(childRef).forEach(key => {
+            Object.entries(childRef).forEach(entry => {
+              console.log(entry);
               this.collection.forEach(butterfly => {
-                if (butterfly.name === key) {
+                if (butterfly.name === entry[0]) {
                   butterfly.unCaught = false;
+                  butterfly.count = entry[1].integerValue;
                 }
               });
             });
