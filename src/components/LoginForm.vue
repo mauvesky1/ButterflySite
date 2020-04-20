@@ -33,6 +33,10 @@
         <button class="create-account-btn">
           <router-link :to="{ name: 'createAccount' }" class="create-account-link">Create An Account</router-link>
         </button>
+        <br />
+        <button class="create-account-btn">
+          <router-link :to="{ name: 'instructions' }" class="create-account-link">How to Play</router-link>
+        </button>
       </form>
     </div>
   </div>

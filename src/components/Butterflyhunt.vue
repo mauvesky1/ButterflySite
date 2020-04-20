@@ -7,12 +7,18 @@
         class="back-link"
       >Back to Child Profile</router-link>
     </button>
+    <button class="top-btn">
+      <router-link :to="{ name: 'instructions' }" class="top-link">How to Play</router-link>
+    </button>
+    <LogOut />
     <br />
     <iframe :src="url" allow="camera *;" class="frame" width="700" height="800"></iframe>
   </div>
 </template>
 
 <script>
+import LogOut from "./Logout";
+
 export default {
   name: "Butterflyhunt",
   data() {
@@ -20,6 +26,7 @@ export default {
       url: this.URLMaker()
     };
   },
+  components: { LogOut },
   methods: {
     URLMaker() {
       const newUrl =

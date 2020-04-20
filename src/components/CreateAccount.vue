@@ -53,6 +53,9 @@
       <button class="backToLogIn">
         <router-link :to="{ name: 'login' }" class="backToLogIn">Back to Log In</router-link>
       </button>
+      <button class="backToLogIn">
+        <router-link :to="{ name: 'instructions' }" class="backToLogIn">How to Play</router-link>
+      </button>
     </div>
   </div>
 </template>
@@ -193,7 +196,7 @@ export default {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 75%;
+  width: 80%;
   margin-top: 5px;
   margin-bottom: 20px;
 }
@@ -210,7 +213,7 @@ export default {
   border: none;
   border-radius: 40px;
   cursor: pointer;
-  width: 75%;
+  width: 80%;
 }
 
 input[type="text"],
