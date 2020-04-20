@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <router-view
-      @authenticated="setAuthenticated"
-      v-on:add-new-parent="addNewParent"
-      v-bind:mockAccount="mockAccount"
-    />
+    <router-view @authenticated="setAuthenticated" v-on:add-new-parent="addNewParent" />
     <div id="nav" class="logout-btn">
       <router-link
         class="logout-link"

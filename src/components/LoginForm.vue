@@ -27,6 +27,7 @@
           required
         />
         <br />
+        <p v-if="input.error" class="error">{{input.error}}</p>
         <button class="signIn-btn" type="button" v-on:click="login()">Sign In</button>
         <br />
         <button class="create-account-btn">
@@ -49,7 +50,8 @@ export default {
     return {
       input: {
         email: "",
-        password: ""
+        password: "",
+        error: false
       }
     };
   },
@@ -74,10 +76,10 @@ export default {
             });
           })
           .catch(err => {
-            console.log(err);
+            this.input.error = err.message;
           });
       } else {
-        console.log("A username and password must be present");
+        this.input.error = "An email and password must be present";
       }
     }
   }
@@ -127,78 +129,11 @@ export default {
     display: grid;
   }
 }
-/* 
-@media only screen and (min-device-width: 360px) and (max-device-width: 640px) and (-webkit-min-device-pixel-ratio: 3) {
-  #login {
-    width: 300px;
 
-    border: 4px solid #d95c26;
-    background-color: #ffffff;
-    border-radius: 30px;
-    margin: auto;
-    padding: 20px;
-    text-align: left;
-    display: grid;
-  }
+.error {
+  color: red;
+  font-weight: bold;
 }
-
-@media only screen and (min-device-width: 411px) and (max-device-width: 731px) {
-  #login {
-    width: 320px;
-
-    border: 4px solid #d95c26;
-    background-color: #ffffff;
-    border-radius: 30px;
-    margin: auto;
-    padding: 20px;
-    text-align: left;
-    display: grid;
-  }
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
-  #login {
-    width: 250px;
-
-    border: 4px solid #d95c26;
-    background-color: #ffffff;
-    border-radius: 30px;
-    margin: auto;
-    padding: 20px;
-    text-align: left;
-    display: grid;
-  }
-}
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-  #login {
-    width: 300px;
-
-    border: 4px solid #d95c26;
-    background-color: #ffffff;
-    border-radius: 30px;
-    margin: auto;
-    margin-top: 10px;
-    padding: 20px;
-    text-align: left;
-    display: grid;
-  }
-}
-
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
-  #login {
-    width: 330px;
-
-    border: 4px solid #d95c26;
-    background-color: #ffffff;
-    border-radius: 30px;
-    margin: auto;
-    margin-top: 15px;
-    padding: 20px;
-    text-align: left;
-    display: grid;
-  }
-} */
 
 .signIn-title {
   color: #d95c26;
