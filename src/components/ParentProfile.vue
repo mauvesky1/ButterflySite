@@ -179,7 +179,7 @@ export default {
   height: 6em;
   width: 6em;
   border-radius: 50%;
-  box-shadow: 1px 7px 6px black;
+  box-shadow: 1px 2px 6px black;
 }
 
 .top-link {
