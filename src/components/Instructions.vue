@@ -126,8 +126,13 @@ export default {
 .listItem {
   font-family: Pacifico;
   font-size: 1.5em;
-
   color: #d95c26;
+  text-align: center;
+}
+
+.downloadbutton:hover {
+  background: linear-gradient(to bottom, #acd998 5%, #e6af2e 100%);
+  background-color: #acd998;
 }
 
 @media screen and (min-width: 600px) {
@@ -180,11 +185,17 @@ export default {
     background-color: #d95c26;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    display: flex;
+    justify-content: center;
+    margin: auto;
     border: none;
     border-radius: 40px;
     cursor: pointer;
     width: 50%;
+  }
+  .instructions {
+    list-style: none;
+    margin-left: -40px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -205,8 +216,11 @@ export default {
   ul {
     list-style: none;
     margin: 0;
-    padding-left: 0;
+
+    margin-left: -40px;
+
   }
+
   #instruction-list {
     width: 85%;
     border: 4px solid #acd998;
@@ -237,7 +251,9 @@ export default {
     background-color: #d95c26;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    display: flex;
+    justify-content: center;
+    margin: auto;
     border: none;
     border-radius: 40px;
     cursor: pointer;

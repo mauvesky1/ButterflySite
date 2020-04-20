@@ -225,6 +225,12 @@ export default {
   margin-bottom: 20px;
 }
 
+.signUpBtn:hover,
+.backToLogIn:hover {
+  background: linear-gradient(to bottom, #acd998 5%, #e6af2e 100%);
+  background-color: #acd998;
+}
+
 .backToLogIn {
   text-decoration: none;
   text-decoration: none;

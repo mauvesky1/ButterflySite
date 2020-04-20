@@ -3,25 +3,42 @@
     <button
       class="create-child-link"
       v-on:click="childForm.showForm = !childForm.showForm"
-    >New Player</button>
+    >
+      New Player
+    </button>
 
-    <form id="new-child-account-login" @submit="addNewChildUser" v-if="childForm.showForm">
+    <form
+      id="new-child-account-login"
+      @submit="addNewChildUser"
+      v-if="childForm.showForm"
+    >
       <label class="child-username">Username:</label>
-      <input type="text" v-model="childForm.username" placeholder="Enter Username" required />
+      <input
+        type="text"
+        v-model="childForm.username"
+        placeholder="Enter Username"
+        required
+      />
       Select a user image:
-      <p v-for="animalType in avatarImages" :key="animalType.id" class="animal-type">
+      <p
+        v-for="animalType in avatarImages"
+        :key="animalType.id"
+        class="animal-type"
+      >
         <br />
         <img
           :src="animalType.imageUrl"
           :key="animalType.id"
           class="avatar-img"
-          @click="childForm.avatarUrl = animalType.imageUrl "
+          @click="childForm.avatarUrl = animalType.imageUrl"
         />
         <br />
         {{ animalType.animal }}
       </p>
 
-      <label class="avatar-title">If you have a custom user image, you can post the url here:</label>
+      <label class="avatar-title"
+        >If you have a custom user image, you can post the url here:</label
+      >
       <input
         type="text"
         v-model="childForm.avatarUrl"
@@ -29,9 +46,13 @@
         required
       />
 
-      <p v-if="childForm.signedUp" class="new-account-msg">You have created an account!</p>
+      <p v-if="childForm.signedUp" class="new-account-msg">
+        You have created an account!
+      </p>
 
-      <button class="sign-up-btn" type="submit" v-on:click="showForm()">Create Profile!</button>
+      <button class="sign-up-btn" type="submit" v-on:click="showForm()">
+        Create Profile!
+      </button>
     </form>
   </div>
 </template>
@@ -47,7 +68,7 @@ export default {
         username: "",
         avatarUrl: "",
         signedUp: false,
-        showForm: false
+        showForm: false,
       },
       avatarImages: [
         {
@@ -55,16 +76,16 @@ export default {
           animal: "Monkey",
           imageUrl:
             "https://i.pinimg.com/originals/b7/e0/38/b7e03818a217be00331cb18645351c62.jpg",
-          chosen: false
+          chosen: false,
         },
         {
           id: 2,
           animal: "Giraffe",
           imageUrl:
             "https://i.pinimg.com/600x315/56/12/94/56129403b7ca6ecd388cdff3d5b23978.jpg",
-          chosen: false
-        }
-      ]
+          chosen: false,
+        },
+      ],
     };
   },
   methods: {
@@ -77,25 +98,25 @@ export default {
 
       docRef.set({
         username: this.childForm.username,
-        avatarUrl: this.childForm.avatarUrl
+        avatarUrl: this.childForm.avatarUrl,
       });
 
       const newChildUser = {
         username: this.childForm.username,
-        avatarUrl: this.childForm.avatarUrl
+        avatarUrl: this.childForm.avatarUrl,
       };
 
       this.$emit("add-new-child", newChildUser);
       this.childForm.username = "";
       this.childForm.avatarUrl = "";
-    }
+    },
   },
   showForm() {
     this.childForm.username.length !== 0 &&
     this.childForm.avatarUrl.length !== 0
       ? (this.childForm.signedUp = !this.childForm.signedUp)
       : (this.childForm.signedUp = false);
-  }
+  },
 };
 </script>
 
@@ -168,6 +189,12 @@ export default {
   border-radius: 40px;
   cursor: pointer;
   width: 50%;
+}
+
+.sign-up-btn:hover,
+.create-child-link:hover {
+  background: linear-gradient(to bottom, #acd998 5%, #e6af2e 100%);
+  background-color: #acd998;
 }
 
 .new-account-msg {
