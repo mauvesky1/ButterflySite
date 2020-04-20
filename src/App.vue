@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view @authenticated="setAuthenticated" v-on:add-new-parent="addNewParent" />
+    <router-view @authenticated="setAuthenticated" />
     <div id="nav" class="logout-btn">
       <router-link
         class="logout-link"
@@ -32,17 +32,7 @@ export default {
   name: "App",
   data() {
     return {
-      authenticated: false,
-      mockAccount: [
-        {
-          username: "parent1",
-          password: "password"
-        },
-        {
-          username: "parent2",
-          password: "northcoders"
-        }
-      ]
+      authenticated: false
     };
   },
   methods: {
@@ -51,9 +41,6 @@ export default {
     },
     logout() {
       this.authenticated = false;
-    },
-    addNewParent(newParentUser) {
-      this.mockAccount = [...this.mockAccount, newParentUser];
     }
   }
 };

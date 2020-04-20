@@ -85,15 +85,6 @@ export default {
   methods: {
     addNewParentUser(event) {
       event.preventDefault();
-      const newParentUser = {
-        email: this.input.email,
-        username: this.input.username,
-        password: this.input.password
-      };
-
-      if (this.input.password === this.input.confirmPassword) {
-        this.$emit("add-new-parent", newParentUser);
-      }
 
       (this.input.email = ""),
         (this.input.username = ""),
