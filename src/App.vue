@@ -1,15 +1,6 @@
 <template>
   <div id="app">
     <router-view @authenticated="setAuthenticated" />
-    <div id="nav" class="logout-btn">
-      <router-link
-        class="logout-link"
-        v-if="authenticated"
-        to="/login"
-        v-on:click.native="logout()"
-        replace
-      >Logout</router-link>
-    </div>
   </div>
 </template>
 
