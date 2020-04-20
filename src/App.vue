@@ -6,6 +6,7 @@
 
 <script>
 import * as firebase from "firebase";
+import "@firebase/auth";
 
 var firebaseConfig = {
   apiKey: "AIzaSyB4tz8vEzmfsVvXs2hcKogzIdWECdNeQbc",
@@ -31,7 +32,12 @@ export default {
       this.authenticated = status;
     },
     logout() {
-      this.authenticated = false;
+      const auth = firebase.auth();
+      let authenticated = this.authenticated;
+
+      auth.signOut().then(cred => {
+        authenticated = false;
+      });
     }
   }
 };

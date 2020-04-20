@@ -48,7 +48,6 @@ export default {
         .collection(`parents/${window.localStorage.uid}/userProfiles/`)
         .get()
         .then(children => {
-          console.log(children.docs);
           children.docs.forEach(child => {
             const childRef = child.lm.Ee.proto.mapValue.fields;
 
