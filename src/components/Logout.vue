@@ -30,7 +30,7 @@ export default {
   margin-bottom: 10px;
 }
 
-.top-btn: hover {
+.top-btn:hover {
   opacity: 10%;
 }
 </style>
