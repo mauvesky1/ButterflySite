@@ -71,7 +71,9 @@ export default {
           number: 3,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-1_3.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "Always identifiable by it's vivid blue and black stripes, The Mexican Bluewing was first spotted in the 1840's, and loves to dine on rotten fruit!"
         },
         {
           name: "Peacock",
@@ -79,7 +81,9 @@ export default {
           type: "Swallowtail",
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-1_4.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "The Peacock Butterfly - also known as Aglais Io - is named after a mythological Greek princess, who fell in love with the god Zeus, and was turned into a cow for her troubles!  "
         },
         {
           name: "Frosted Tip",
@@ -87,7 +91,9 @@ export default {
           type: "Swallowtail",
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-1_5.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "The Frosted Tip is a highly discerning butterfly, with a penchant for fashion and pop music.  They enjoyed prominance during the late nineties and early 2000's, but have become rare in more recent years."
         },
         {
           name: "Apetura Iris",
@@ -95,7 +101,9 @@ export default {
           type: "Owl",
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-2_1.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "Female Apeture Iris butterflies are simple brown butterflies, which dine on honeydew and tree sap.  The males, on the other hand, are gloriously purple, but they eat animal poo and roadkill!  Which would you rather be?"
         },
         {
           name: "Starlet",
@@ -103,7 +111,9 @@ export default {
           type: "Metalmark",
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-2_2.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "Young Starlet butterflies are drawn to bright light, and can often get burned or bumped by flying too close to flashing cameras.  Those that survive long enough to grow old prefer the night, and fill dark skies with their bright wings. "
         },
         {
           name: "Stargazer",
@@ -111,7 +121,9 @@ export default {
           type: "Owl",
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-2_3.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "In folklore, The Stargazer Butterfly is believed to slip most easily in and out of the spirit world.  Any secrets you whisper to them will be kept, and any wishes you tell them will be granted."
         },
         {
           name: "Swirley-Harley",
@@ -119,7 +131,9 @@ export default {
           type: "Metalmark",
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-2_4.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "Swirley-Harley butterflies are actually born white, but are infamous for breaking into art supply stores to decorate themselves!"
         },
         {
           name: "Haywain",
@@ -127,7 +141,9 @@ export default {
           number: 10,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-2_5.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "Well shucks!  Haywain butterflies may not have all the frills of your fancy city butterflies, but they can lassoo a buckin' bronco at 200 yards, yes siree!  Don't believe me?  Give 'em a rope and a bronco and you'll see! "
         },
         {
           name: "Shoreline",
@@ -135,7 +151,9 @@ export default {
           number: 11,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-3_1.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "The Shoreline is often considered the daredevil of the butterfly family!  Known for flying out into choppy tidal waters, and fluttering back in, on the cresting foam of waves."
         },
         {
           name: "Purple Emperor",
@@ -143,7 +161,9 @@ export default {
           type: "Owl",
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-3_2.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "It is a little known fact that The Purple Emperor - known as His Imperial Majesty, by his many fans - is actually the legal monarch of the United Kingdom.  He is extremely suspicious of Vive La France."
         },
         {
           name: "Vive La France",
@@ -151,7 +171,9 @@ export default {
           type: "Metalmark",
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-3_3.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "Most butterflies are content with their lot in life.  They conquer, they dominate, they are gilded through glory, and have conquered the world twice, by conquest and by dazzling, what finer thing could there possibly be?   Vive La France answers:  To be free."
         },
         {
           name: "Scrying Glass",
@@ -159,7 +181,9 @@ export default {
           number: 14,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-3_4.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "The Scrying Glass is one of the darkest of the Metalmark butterflies.  It is said that at night they mingle with moths, and fly through the dreams of powerful people, stealing secrets.  If you look closely, you can see the secrets of kings and presidents reflected in their wings."
         },
         {
           name: "Seafoam",
@@ -167,7 +191,9 @@ export default {
           number: 15,
           url:
             "https://raw.githubusercontent.com/conwayhub/markertests/master/butterflies/butterfly-3_5.png",
-          unCaught: true
+          unCaught: true,
+          details:
+            "It is lies and misinformation that the Seafoam butterfly tastes anything at all like delicious fizzy parma violets.  Please do not taste the Seafoam butterfly."
         }
       ]
     };
@@ -242,7 +268,7 @@ export default {
 .hidden {
   display: none;
 }
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 769px) {
   #toptext {
     width: 500pt;
     border: 4px solid #acd998;
@@ -264,7 +290,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   #toptext {
     width: 85%;
     border: 4px solid #acd998;
@@ -276,13 +302,12 @@ export default {
     display: grid;
   }
   .gridlist {
-    display: grid;
-    grid-template-columns: 1fr;
-    list-style: none;
-    column-count: 1;
-    column-gap: 1em;
-    row-gap: 1em;
+    width: 85%;
     padding: 1em;
+    list-style: none;
+  }
+  .butterfly-details {
+    width: 85%;
   }
 }
 </style>
