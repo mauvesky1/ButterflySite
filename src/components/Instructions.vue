@@ -44,7 +44,9 @@
             will scan in order to bring the butterflies to life in your home!
           </p>
 
-          <button class="downloadbutton">Download Markers!</button>
+          <a href="../assets/Images/finalMarkers.pdf" target="_blank">
+            <button class="downloadbutton">Download Markers!</button>
+          </a>
           <p>
             You can download a pdf of our markers from here! If you have a
             printer, the next bit is easy! Print out the markers, and cut them
@@ -218,7 +220,6 @@ export default {
     margin: 0;
 
     margin-left: -40px;
-
   }
 
   #instruction-list {
