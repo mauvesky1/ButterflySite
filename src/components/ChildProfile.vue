@@ -1,24 +1,8 @@
 <template>
   <div>
     <Header />
-<<<<<<< Updated upstream
-    <button class="back-btn">
-      <router-link
-        v-if="$routerHistory.hasPrevious()"
-        :to="{ path: $routerHistory.previous().path }"
-        class="back-link"
-        >Back to Parent Profile</router-link
-      >
-    </button>
-    <button class="top-btn">
-      <router-link :to="{ name: 'instructions' }" class="top-link"
-        >How to Play</router-link
-      >
-    </button>
-=======
     <BackButton />
     <HowToPlayButton />
->>>>>>> Stashed changes
     <LogOut />
     <div id="child-profile">
       <img :src="`${avatarUrl}`" class="avatar" />
@@ -33,13 +17,9 @@
       </p>
 
       <div id="nav">
-        <router-link :to="{ name: 'Collection' }" class="butterfly-collection"
-          >Butterfly Collection</router-link
-        >
+        <router-link :to="{ name: 'Collection' }" class="butterfly-collection">Butterfly Collection</router-link>
         <br />
-        <router-link :to="{ name: 'Butterflyhunt' }" class="go-hunting"
-          >Go Hunting</router-link
-        >
+        <router-link :to="{ name: 'Butterflyhunt' }" class="go-hunting">Go Hunting</router-link>
       </div>
     </div>
   </div>
@@ -58,7 +38,7 @@ export default {
   data() {
     return {
       username: "",
-      avatarUrl: "",
+      avatarUrl: ""
     };
   },
 
@@ -67,9 +47,9 @@ export default {
       firestore()
         .collection(`parents/${window.localStorage.uid}/userProfiles/`)
         .get()
-        .then((children) => {
+        .then(children => {
           console.log(children.docs);
-          children.docs.forEach((child) => {
+          children.docs.forEach(child => {
             const childRef = child.lm.Ee.proto.mapValue.fields;
 
             if (childRef.username.stringValue === this.$route.params.username) {
@@ -79,7 +59,7 @@ export default {
           });
         });
     }
-  },
+  }
 };
 </script>
 

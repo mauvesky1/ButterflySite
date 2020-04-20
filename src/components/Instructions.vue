@@ -1,22 +1,11 @@
 <template>
   <div>
     <Header />
-<<<<<<< Updated upstream
-    <button class="back-btn">
-      <router-link
-        v-if="$routerHistory.hasPrevious()"
-        :to="{ path: $routerHistory.previous().path }"
-        class="back-link"
-        >Go Back</router-link
-      >
-    </button>
-=======
     <nav id="navbar">
       <BackButton class="navbutt" />
       <HowToPlayButton class="navbutt" />
       <LogOut class="navbutt" />
     </nav>
->>>>>>> Stashed changes
     <div id="instruction-list">
       <h1 class="welcome-msg">Instructions</h1>
       <p>Welcome to the Butterfly Hunt!</p>
@@ -31,14 +20,8 @@
           <h3 class="listItem">Step 1 - Create Your Account</h3>
           <div class="imgbar">
             <img src="../assets/Images/loginsquare.jpg" />
-            <img
-              src="../assets/Images/newplayersquare.jpg"
-              class="desktop-only"
-            />
-            <img
-              src="../assets/Images/Harrietsquare.jpg"
-              class="desktop-only"
-            />
+            <img src="../assets/Images/newplayersquare.jpg" class="desktop-only" />
+            <img src="../assets/Images/Harrietsquare.jpg" class="desktop-only" />
           </div>
           <p>
             If you haven't already, just head to the home page to create your
@@ -54,10 +37,7 @@
             <img src="../assets/Images/pattern-pixil-frame-0 (8).png" />
             <img src="../assets/Images/hdrawnsquare.jpg" class="desktop-only" />
 
-            <img
-              src="../assets/Images/finalMarkerssquare.jpg"
-              class="desktop-only"
-            />
+            <img src="../assets/Images/finalMarkerssquare.jpg" class="desktop-only" />
           </div>
           <p>
             Butterfly Hunt has five unique markers, which your phone or tablet
@@ -104,10 +84,7 @@
             <img src="../assets/Images/letterboxsquare.jpg" />
             <img src="../assets/Images/fishiesquare.jpg" class="desktop-only" />
 
-            <img
-              src="../assets/Images/fridgebutterflysquare.jpg"
-              class="desktop-only"
-            />
+            <img src="../assets/Images/fridgebutterflysquare.jpg" class="desktop-only" />
           </div>
 
           <p>
@@ -130,14 +107,10 @@ export default {
   name: "Instructions",
   components: {
     Header,
-<<<<<<< Updated upstream
-  },
-=======
     BackButton,
     LogOut,
     HowToPlayButton
   }
->>>>>>> Stashed changes
 };
 </script>
 
@@ -158,6 +131,22 @@ export default {
 }
 
 @media screen and (min-width: 600px) {
+  #navbar {
+    margin: auto;
+    display: grid;
+    width: 500pt;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    column-count: 3;
+    column-gap: 1em;
+    row-gap: 1em;
+    padding: 1em;
+    justify-items: center;
+  }
+  .navbutt {
+    width: 100%;
+    height: auto;
+  }
   li {
     list-style: none;
     margin: 0;
@@ -200,6 +189,7 @@ export default {
 }
 @media screen and (max-width: 600px) {
   #navbar {
+    margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     list-style: none;
