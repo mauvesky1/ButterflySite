@@ -140,6 +140,12 @@ export default {
   font-weight: bold;
 }
 
+.butterfly-collection:hover,
+.go-hunting:hover {
+  background: linear-gradient(to bottom, #acd998 5%, #e6af2e 100%);
+  background-color: #acd998;
+}
+
 .back-link {
   text-decoration: none;
   color: white;

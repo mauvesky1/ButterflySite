@@ -186,6 +186,12 @@ export default {
   width: 75%;
 }
 
+.signIn-btn:hover,
+.create-account-btn:hover {
+  background: linear-gradient(to bottom, #acd998 5%, #e6af2e 100%);
+  background-color: #acd998;
+}
+
 .create-account-link {
   text-decoration: none;
   color: white;
