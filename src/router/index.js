@@ -9,6 +9,7 @@ import ButterflyHuntComponent from "../components/Butterflyhunt.vue";
 import CollectionComponent from "../components/Collection.vue";
 import IndividualButterflyComponent from "../components/IndividualButterfly.vue";
 import Instructions from "../components/Instructions.vue";
+import gameover from "../components/GameEnd.vue";
 
 Vue.use(VueRouter);
 
@@ -63,6 +64,11 @@ const routes = [
     path: "/:parentusername/:username/collection/name",
     name: "IndividualButterfly",
     component: IndividualButterflyComponent,
+  },
+  {
+    path: "/gameover",
+    name: "gameover",
+    component: gameover,
   },
 ];
 

@@ -72,7 +72,7 @@ export default {
           .signInWithEmailAndPassword(this.input.email, this.input.password)
           .then(cred => {
             window.localStorage.setItem("uid", cred.user.uid);
-
+            //this.$emit("uid", cred.user.uid);
             this.$emit("authenticated", true);
             this.$router.replace({
               name: "parentProfile",
